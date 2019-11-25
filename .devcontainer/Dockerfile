@@ -5,4 +5,4 @@ RUN apk --no-cache add \
     bash \
     ca-certificates \
     git \
-    ssh
+    openssh
