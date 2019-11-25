@@ -23,7 +23,6 @@
             "ms-azuretools.vscode-docker": "ui"
         }
     },
-    "workspaceFolder": "/workspace",
     "runArgs": [
         // let's load our modules into a persistent volume for performance and to alleviate any OS specific issue
         "-v",
