@@ -4,4 +4,5 @@ FROM node:current-alpine
 RUN apk --no-cache add \
     bash \
     ca-certificates \
-    git
+    git \
+    ssh
