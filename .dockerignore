@@ -1,0 +1,24 @@
+.git
+.idea
+.DS_Store
+.data
+
+# Ignore the local files not used in docker image. This should shrink the build context
+.idea/
+node_modules/
+.vscode
+target/
+*.iml
+logs/
+coverage/
+.build/
+npm-debug.log
+build/
+config/ntalla.json
+hive_jars/
+mde/
+package-lock.json
+udl/
+local-spark/
+temporary/
+.devcontainer/
