@@ -11,5 +11,7 @@ const unlinkFile = promisify(fs.unlink)
 // cleanup files we created in index.js
 unlinkFile('clone.txt')
 .then(() => console.log('clone.txt unlinked!'))
+.catch((err) => console.error('Error occurred during unlink:', err))
 .then(() => unlinkFile('original.txt'))
+.then(() => console.log('original.txt unlinked!'))
 .catch((err) => console.error('Error occurred during unlink:', err))
