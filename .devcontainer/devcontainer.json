@@ -30,7 +30,7 @@
         // mount the ssh key info so we can post to github and whatnot
         // Source: https://code.visualstudio.com/docs/remote/containers-advanced#_adding-another-local-file-mount
         "-v",
-        "${env:HOME}${env:USERPROFILE}/.ssh/:/root/.ssh"
+        "${env:HOME}${env:USERPROFILE}/.ssh/id_rsa/:/root/.ssh/id_rsa"
 
     ]
 }
