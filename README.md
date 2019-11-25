@@ -5,13 +5,13 @@ A Containerized playground for experimenting with Node.js using [vscode's Remote
 - [node-playground](#node-playground)
 - [Mission Statement](#mission-statement)
 - [Using This Guide](#using-this-guide)
-- [General Troubleshooting](#general-troubleshooting)
-  - [Reloading the Window / Rebuilding the Container](#reloading-the-window--rebuilding-the-container)
-  - [Resetting vscode AppData](#resetting-vscode-appdata)
 - [Pre-Req Checklist](#pre-req-checklist)
   - [Docker](#docker)
   - [vscode](#vscode)
     - [vscode extensions](#vscode-extensions)
+- [General Troubleshooting](#general-troubleshooting)
+  - [Reloading the Window / Rebuilding the Container](#reloading-the-window--rebuilding-the-container)
+  - [Resetting vscode AppData](#resetting-vscode-appdata)
 - [Reopen in a Dev Container and Start Hacking](#reopen-in-a-dev-container-and-start-hacking)
   - [Hello, World!](#hello-world)
 
@@ -29,27 +29,6 @@ All commands referenced in this document will refer to '.' as the same folder in
 
 All commands are assumed to be ran under `powershell` for Windows hosts and `bash` for *nix hosts.
 
-# General Troubleshooting
-## Reloading the Window / Rebuilding the Container
-As of the writing of this doc, vscode remote-containers is still really new. Some of the sharp edges are still there and may require some extra finesse. As a general rule of thumb, if something isn't loading in the remote environment, try to [reload window](./img/reload_window.png) or [rebuilding the container](./img/rebuild_container.png).
-
-- ![](./img/reload_window.png)
-- ![](./img/rebuild_container.png)
-
-## Resetting vscode AppData
-If your workspace becomes corrupted, opens to a blank screen, or has other issues that can't be mitigated through the gui, your local vscode settings can be inspected / reset at the following locations on your machine:
-
-```yaml
-# Mainline
-Windows: "~/AppData/Roaming/Code"
-Linux: "$HOME/.config/Code/"
-macOS: "$HOME/Library/Application Support/Code"
-
-# Insiders
-Windows: "~/AppData/Roaming/Code - Insiders"
-Linux: "$HOME/.config/Code - Insiders/"
-macOS: "$HOME/Library/Application Support/Code - Insiders"
-```
 
 # Pre-Req Checklist
 ## Docker
@@ -80,6 +59,28 @@ docker run --rm -v ~:/data alpine ls /data
 
 
 
+
+# General Troubleshooting
+## Reloading the Window / Rebuilding the Container
+As of the writing of this doc, vscode remote-containers is still really new. Some of the sharp edges are still there and may require some extra finesse. As a general rule of thumb, if something isn't loading in the remote environment, try to [reload window](./img/reload_window.png) or [rebuilding the container](./img/rebuild_container.png).
+
+- ![](./img/reload_window.png)
+- ![](./img/rebuild_container.png)
+
+## Resetting vscode AppData
+If your workspace becomes corrupted, opens to a blank screen, or has other issues that can't be mitigated through the gui, your local vscode settings can be inspected / reset at the following locations on your machine:
+
+```yaml
+# Mainline
+Windows: "~/AppData/Roaming/Code"
+Linux: "$HOME/.config/Code/"
+macOS: "$HOME/Library/Application Support/Code"
+
+# Insiders
+Windows: "~/AppData/Roaming/Code - Insiders"
+Linux: "$HOME/.config/Code - Insiders/"
+macOS: "$HOME/Library/Application Support/Code - Insiders"
+```
 
 # Reopen in a Dev Container and Start Hacking
 Open this folder in vscode configured with the pre-recs above and you should be prompted to reopen in Container. From there the .devcontainer config will be used to create and start your dev environment.
