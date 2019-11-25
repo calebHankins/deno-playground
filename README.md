@@ -74,6 +74,6 @@ Open this folder in vscode configured with the pre-recs above and you should be 
 - ![popup_reopen_in_container](./img/popup_reopen_in_container.png)
 
 ## Hello, World!
-To try our your new env, you can start by running the supplied "Hello, World!" app.
+To try our your new env, you can start by running the supplied ["Hello, World!" app](index.js) via npm start!
 
 ![npm_start](img/npm_start.png)
