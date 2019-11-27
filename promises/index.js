@@ -10,11 +10,11 @@ const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
 
 writeFile('original.txt', 'Promise me you will clone me!')
-.then(() => readFile('original.txt', 'utf-8'))
-.then(content => writeFile('clone.txt', content))
-.then(() => readFile('clone.txt', 'utf-8'))
-.then(cloneContent => console.log(cloneContent))
-.catch(err => console.log('Error occurred:', err))
+    .then(() => readFile('original.txt', 'utf-8'))
+    .then(content => writeFile('clone.txt', content))
+    .then(() => readFile('clone.txt', 'utf-8'))
+    .then(cloneContent => console.log(cloneContent))
+    .catch(err => console.log('Error occurred:', err))
 
 
 // Promise me you will clone me!
