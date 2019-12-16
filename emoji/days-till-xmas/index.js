@@ -1,15 +1,18 @@
 // Default our start date to now, but also accept the first command line arg
-const startDate = process.argv[2] ? new Date(process.argv[2]) : new Date()
+const startDate =
+    process.argv[2] ? new Date(process.argv[2])
+        : new Date()
 
 // Figure out how many days we have to wait for our presents
 const daysTillXmas = getDaysTillXmas(startDate)
 
 // Assess how we feel about that
-const mood = isNaN(daysTillXmas) ? '🤔'
-    : daysTillXmas > 30 ? '🤢'
-        : daysTillXmas > 7 ? '😄'
-            : daysTillXmas > 1 ? '😁'
-                : '🎅'
+const mood =
+    isNaN(daysTillXmas) ? '🤔'
+        : daysTillXmas > 30 ? '🤢'
+            : daysTillXmas > 7 ? '😄'
+                : daysTillXmas > 1 ? '😁'
+                    : '🎅'
 
 // Then tell folks
 console.log(`It's ${daysTillXmas} 📆  till 🎄, my dudes ${mood}`);
