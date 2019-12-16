@@ -1,4 +1,14 @@
 {
+    "emojisense.languages": {
+        "markdown": true,
+        "git-commit": false,
+        "plaintext": false,
+        "json": true,
+        "javascript": true
+    },
+    "emojisense.unicodeCompletionsEnabled": true,
+    "emojisense.markupCompletionsEnabled": true,
+    "emojisense.showOnColon": true,
     "cSpell.words": [
         "appdata",
         "devcontainer",

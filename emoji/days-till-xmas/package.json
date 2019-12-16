@@ -1,0 +1,15 @@
+{
+    "name": "node-playground-days-till-xmas",
+    "version": "0.0.1",
+    "description": "Experiments with holiday time",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:calebHankins/node-playground.git"
+    },
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Caleb 'chanki' Hankins",
+    "license": "Apache-2.0"
+}

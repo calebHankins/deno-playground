@@ -14,7 +14,9 @@
         "ms-vscode-remote.vscode-remote-extensionpack",
         "mhutchie.git-graph",
         "yzhang.markdown-all-in-one",
-        "mutantdino.resourcemonitor"
+        "mutantdino.resourcemonitor",
+        "bierner.emojisense",
+        "hookyqr.beautify"
     ],
     "settings": {
         "remote.extensionKind": {
