@@ -1,0 +1,18 @@
+{
+    "name": "ini-modification",
+    "version": "0.0.1",
+    "description": "Simple app that modifies ini formatted files",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:calebHankins/node-playground.git"
+    },
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Caleb 'chanki' Hankins",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "ini": "^1.3.5"
+    }
+}
