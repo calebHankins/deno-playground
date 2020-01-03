@@ -8,21 +8,18 @@ const { promisify } = require('util')
 const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
 
-// Todo, can we convert these to be async/await with promises?
-const iniParse = ini.parse
-const iniStringify = ini.stringify
 
 readFile('./config.ini', 'utf-8')
     .then(content => {
         console.log(`Here's what we got for input:\n${content}`)
         return content // return this so we can keep using it
     })
-    .then(content => iniParse(content))
-    .then(config => {
-        console.log(`Here's our config object before we mess with it:\n` + iniStringify(config))
+    .then(async content => ini.parse(content))
+    .then(async config => {
+        console.log(`Here's our config object before we mess with it:\n` + ini.stringify(config))
         return config // return this so we can keep using it
     })
-    .then(config => {
+    .then(async config => {
         // update existing config
         config.database.database = 'use_another_database'
         config.paths.default.tmpdir = '/tmp'
@@ -36,9 +33,9 @@ readFile('./config.ini', 'utf-8')
         config.KingKnowledge.AirspeedVelocity = '24 mi/hr'
         return config
     })
-    .then(config => {
-        console.log(`Here's our config object after we mess with it:\n` + iniStringify(config))
+    .then(async config => {
+        console.log(`Here's our config object after we mess with it:\n` + ini.stringify(config))
         return config // return this so we can keep using it
     })
-    .then(config => writeFile('./config_modified.ini', iniStringify(config)))
+    .then(async config => writeFile('./config_modified.ini', ini.stringify(config)))
     .catch(err => console.log('Error occurred:', err))
