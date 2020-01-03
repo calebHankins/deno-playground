@@ -7,6 +7,16 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "async-await",
+            "program": "${workspaceFolder}/async-await/index.js",
+            "cwd": "${workspaceFolder}/async-await/",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "promises - clone",
             "program": "${workspaceFolder}/promises/index.js",
             "cwd": "${workspaceFolder}/promises/",
