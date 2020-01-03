@@ -1,7 +1,7 @@
 {
-    "name": "ini-async-tink",
+    "name": "ini-async-tink-pc",
     "version": "0.0.1",
-    "description": "ini tinkering with some async tests",
+    "description": "ini tinkering with promise chain",
     "main": "index.js",
     "repository": {
         "type": "git",

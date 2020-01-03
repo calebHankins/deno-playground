@@ -1,14 +1,12 @@
-// Messing around with the ini package (https://www.npmjs.com/package/ini)
-
-const fs = require('fs')
-    , ini = require('ini')
-const { promisify } = require('util')
-
-// Get optional filenames from cli
+// refactor of ini-promise-chain with async function instead of promise chain
 const configFileName =
     process.argv[2] ? process.argv[2] : './config.ini'
 const configFileNameModified =
     process.argv[3] ? process.argv[3] : './config_modified.ini'
+
+const fs = require('fs')
+    , ini = require('ini')
+const { promisify } = require('util')
 
 // promisify callback based calls
 const readFile = promisify(fs.readFile)
@@ -44,4 +42,29 @@ async function updateConfig(config) {
 
 }
 
+// https://stackoverflow.com/a/41957152
+function sleep(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms)
+    })
+}
+
+async function aSleep(ms) {
+    await sleep(ms)
+    // await goodBoy()
+    goodBoy(7)
+    console.log((ms / 1000).toString())
+}
+
+function goodBoy(secs) {
+    sleep(secs * 1000).then(() => console.log(`Who's a good boy?`))
+}
+
 updateConfigFile(configFileName, configFileNameModified)
+console.log('1')
+sleep(4000)
+    .then(() => console.log('4'))
+aSleep(3000)
+console.log('2')
+const goodBoySleeping = (secs) => goodBoy(secs)
+goodBoySleeping(0)
