@@ -15,6 +15,7 @@
         "openssh",
         "promisify",
         "shwoopsie",
+        "tink",
         "vids"
     ]
 }
