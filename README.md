@@ -33,7 +33,7 @@ All commands are assumed to be ran under `powershell` for Windows hosts and `bas
 # Pre-Req Checklist
 ## Docker
 - [Docker Desktop running locally](https://www.docker.com/products/docker-desktop)
-- You must have local volume mounts working to get the most our of this guide. You can test you local drive mounting with the following code:
+- You must have local volume mounts working to get the most out of this guide. You can test you local drive mounting with the following code:
 
 ```powershell
 # This should print the contents of your host OS home folder. 
