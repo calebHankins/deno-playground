@@ -39,5 +39,10 @@
         "${env:HOME}${env:USERPROFILE}/.ssh/known_hosts/:/root/.ssh/known_hosts",
         "-v",
         "${env:HOME}${env:USERPROFILE}/.ssh/authorized_keys/:/root/.ssh/authorized_keys"
+    ],
+    "mounts": [
+        "node-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
+        // And/or for VS Code Insiders
+        "node-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
     ]
 }
