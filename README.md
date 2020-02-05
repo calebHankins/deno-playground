@@ -99,6 +99,7 @@ To try our your new env, you can start by running the supplied ["Hello, World!" 
 
 ```bash
 # Sample persistance reset for select volumes
+docker volume rm node-playground-node_modules
 docker volume rm node-playground-extensions
 docker volume rm node-playground-extensions-insiders
 docker volume rm node-playground-vscode-data
