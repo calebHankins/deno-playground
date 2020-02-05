@@ -14,6 +14,7 @@ A Containerized playground for experimenting with Node.js using [vscode's Remote
   - [Resetting vscode AppData](#resetting-vscode-appdata)
 - [Reopen in a Dev Container and Start Hacking](#reopen-in-a-dev-container-and-start-hacking)
   - [Hello, World!](#hello-world)
+- [Container Persistence Through Rebuilds](#container-persistence-through-rebuilds)
 
 # Mission Statement
 
@@ -91,3 +92,18 @@ Open this folder in vscode configured with the pre-recs above and you should be 
 To try our your new env, you can start by running the supplied ["Hello, World!" app](index.js) via npm start!
 
 ![npm_start](img/npm_start.png)
+
+
+# Container Persistence Through Rebuilds
+- The sample [devcontainer.json](.devcontainer/devcontainer.json) stores select folders as persistent volumes to speed up container rebuilds and avoid losing certain data and config. To clear out these settings, you can run `docker volume rm` for each volume that you'd like to reset. Note, you must also remove any containers that are using the volumes that you'd like to delete.
+
+```bash
+# Sample persistance reset for select volumes
+docker volume rm node-playground-extensions
+docker volume rm node-playground-extensions-insiders
+docker volume rm node-playground-vscode-data
+docker volume rm node-playground-vscode-data-insiders
+docker volume rm node-playground-quokka
+```
+
+See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.

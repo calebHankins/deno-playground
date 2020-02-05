@@ -41,8 +41,14 @@
         "${env:HOME}${env:USERPROFILE}/.ssh/authorized_keys/:/root/.ssh/authorized_keys"
     ],
     "mounts": [
-        "node-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
-        // And/or for VS Code Insiders
-        "node-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+        // review side effects here: https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild
+        // extension code persistence
+        "source=node-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
+        "source=node-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+        // user setting and workspace persistance
+        "source=node-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
+        "source=node-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
+        // quokka config persistance
+        "source=node-playground-quokka,target=/root/.quokka/,type=volume",
     ]
 }
