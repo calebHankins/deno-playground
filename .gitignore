@@ -89,3 +89,5 @@ typings/
 
 certs/
 .DS_Store
+
+scratch/
