@@ -16,7 +16,9 @@
         "yzhang.markdown-all-in-one",
         "mutantdino.resourcemonitor",
         "bierner.emojisense",
-        "hookyqr.beautify"
+        "hookyqr.beautify",
+        "wallabyjs.quokka-vscode",
+        "sketchbuch.vsc-quokka-statusbar"
     ],
     "settings": {
         "remote.extensionKind": {
