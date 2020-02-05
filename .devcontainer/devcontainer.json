@@ -28,7 +28,7 @@
     "runArgs": [
         // let's load our modules into a persistent volume for performance and to alleviate any OS specific issue
         "-v",
-        "node-playground-node_modules:/workspaces/node_modules",
+        "node-playground-node_modules:/workspaces/node-playground/node_modules",
         // mount the ssh key info so we can post to github and whatnot
         // Source: https://code.visualstudio.com/docs/remote/containers-advanced#_adding-another-local-file-mount
         "-v",
