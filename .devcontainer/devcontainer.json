@@ -49,6 +49,6 @@
         "source=node-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
         "source=node-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
         // quokka config persistance
-        "source=node-playground-quokka,target=/root/.quokka/,type=volume",
+        "source=node-playground-quokka,target=/root/.quokka/,type=volume"
     ]
 }
