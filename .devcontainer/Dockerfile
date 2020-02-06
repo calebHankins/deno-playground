@@ -6,3 +6,7 @@ RUN apk --no-cache add \
     ca-certificates \
     git \
     openssh
+
+# Command history persistence
+ENV PROMPT_COMMAND='history -a'
+ENV HISTFILE=/command_history/.ash_history
