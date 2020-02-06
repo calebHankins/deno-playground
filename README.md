@@ -107,3 +107,4 @@ docker volume rm node-playground-ash_history
 ```
 
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.
+
