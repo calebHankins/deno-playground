@@ -102,9 +102,8 @@ To try our your new env, you can start by running the supplied ["Hello, World!" 
 docker volume rm node-playground-node_modules
 docker volume rm node-playground-extensions
 docker volume rm node-playground-extensions-insiders
-docker volume rm node-playground-vscode-data
-docker volume rm node-playground-vscode-data-insiders
 docker volume rm node-playground-quokka
+docker volume rm node-playground-ash_history
 ```
 
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.

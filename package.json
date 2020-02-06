@@ -11,5 +11,8 @@
         "start": "node index.js"
     },
     "author": "Caleb 'chanki' Hankins",
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "dependencies": {
+        "mkdirp": "^1.0.3"
+    }
 }
