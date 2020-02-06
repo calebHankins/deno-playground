@@ -30,7 +30,7 @@
     "runArgs": [],
     "mounts": [
         // review side effects here: https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild
-        // .ssh staging folders. Windows file permisions are too loose for ssh to function normally. Staging these and copying to ~/.ssh to lock down permissions in the container
+        // .ssh staging folders. Windows file permissions are too loose for ssh to function normally. Staging these and copying to ~/.ssh to lock down permissions in the container
         // see https://code.visualstudio.com/docs/remote/troubleshooting#_fixing-ssh-file-permission-errors for more info
         "source=${env:HOME}${env:USERPROFILE}/.ssh/id_rsa,target=/root/.ssh${env:USERPROFILE}/id_rsa,type=bind,consistency=cached",
         "source=${env:HOME}${env:USERPROFILE}/.ssh/id_rsa.pub,target=/root/.ssh${env:USERPROFILE}/id_rsa.pub,type=bind,consistency=cached",
