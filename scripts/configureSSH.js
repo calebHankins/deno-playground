@@ -55,5 +55,5 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
     }
 }
 
-const targetFiles = ['id_rsa', 'config', 'test_file.jpg', 'known_hosts', 'id_rsa.pub', 'authorized_keys']
+const targetFiles = ['id_rsa', 'config', 'known_hosts', 'id_rsa.pub', 'authorized_keys']
 copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles)
