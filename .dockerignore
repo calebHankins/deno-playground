@@ -4,6 +4,7 @@
 .data
 
 # Ignore the local files not used in docker image. This should shrink the build context
+__MACOSX/
 .idea/
 node_modules/
 .vscode
