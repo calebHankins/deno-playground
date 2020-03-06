@@ -8,7 +8,8 @@
         "url": "ssh://git@github.com:calebHankins/node-playground.git"
     },
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "configureSSH": "node scripts/configureSSH.js"
     },
     "author": "Caleb 'chanki' Hankins",
     "license": "Apache-2.0",

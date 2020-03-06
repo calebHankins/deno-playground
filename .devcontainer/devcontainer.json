@@ -55,5 +55,5 @@
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions
         "SSH_TEMP_FOLDER_NAME": "/root/.ssh${env:USERPROFILE}"
     },
-    "postCreateCommand": "npm install && node ./scripts/configureSSH.js"
+    "postCreateCommand": "npm install && npm run configureSSH"
 }
