@@ -1,11 +1,10 @@
 // Simple app that prints environment info
-const os = require('os')
-const platform = os.platform()
+const os = require('os');
 
-console.log(`Hello from hostname:${os.hostname()}, platform:${platform}, release:${os.release()}, arch:${os.arch()}, node runtime version:${process.version}`)
+const platform = os.platform();
 
-if (os.release().includes('linuxkit')) {
-    console.log("Hello from container land!")
-}
+console.log(`Hello from hostname:${os.hostname()}, platform:${platform}, release:${os.release()}, arch:${os.arch()}, node runtime version:${process.version}`);
 
-console.log('See ya!')
+if (os.release().includes('linuxkit')) { console.log('Hello from container land! 🐳'); }
+
+console.log('See ya!');

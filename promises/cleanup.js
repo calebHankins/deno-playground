@@ -1,12 +1,12 @@
 // Experimenting with promises, examples based on https://tech.io/playgrounds/6730/i-promise-i-wont-callback-anymore
 
-const fs = require('fs')
+const fs = require('fs');
 
 // Get the promisify method from the util module
-const { promisify } = require('util')
+const { promisify } = require('util');
 
 // Promisify unlink function
-const unlinkFile = promisify(fs.unlink)
+const unlinkFile = promisify(fs.unlink);
 
 // cleanup files we created in index.js
 unlinkFile('clone.txt')
@@ -17,4 +17,4 @@ unlinkFile('clone.txt')
     .catch((err) => console.error('Error occurred during unlink:', err))
     .then(() => unlinkFile('dne.txt'))
     .then(() => console.log('dne.txt unlinked!'))
-    .catch((err) => console.error('Error occurred during unlink:', err))
+    .catch((err) => console.error('Error occurred during unlink:', err));
