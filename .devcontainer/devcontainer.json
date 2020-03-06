@@ -10,6 +10,7 @@
         "editorconfig.editorconfig",
         "ms-azuretools.vscode-docker",
         "ms-vscode.vscode-typescript-tslint-plugin",
+        "dbaeumer.vscode-eslint",
         "streetsidesoftware.code-spell-checker",
         "ms-vscode-remote.vscode-remote-extensionpack",
         "mhutchie.git-graph",
