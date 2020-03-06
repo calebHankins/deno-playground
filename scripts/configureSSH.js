@@ -44,7 +44,8 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
                     await fsCopy(sourceFullPath, targetFullPath);
                     await fsChmod(targetFullPath, '0600');
                     const statAfterUpdate = await fsStat(targetFullPath);
-                    const unixFilePermissionsAfterUpdate = `0${(statAfterUpdate.mode).toString(8)}`;
+                    // eslint-disable-next-line no-bitwise
+                    const unixFilePermissionsAfterUpdate = `0${(statAfterUpdate.mode & 0o777).toString(8)}`;
                     console.log(`${targetFullPath}'s unix permissions after update: ${unixFilePermissionsAfterUpdate}`);
                 } catch (err) {
                     console.error(err);
