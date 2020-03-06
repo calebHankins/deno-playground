@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const { promisify } = require('util');
@@ -13,7 +14,7 @@ console.log(`ssh temp folder detected as: ${tempSSHFolderEnv}`);
 
 /**
  * copySSHFiles from staging folder to final folder. Lock down permissions to allow git to function.
- * @param {string} tempSSHFolder - Staging folder where ssh file currently reside.
+ * @param {string} tempSSHFolder - Staging folder where ssh file currently reside
  * @param {string} targetSSHFolder - Final folder for ssh files
  * @param {string[]} targetFiles - White list of files to operate on
  * @returns {void}
