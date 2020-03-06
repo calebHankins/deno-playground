@@ -43,10 +43,10 @@
         // extension code persistence
         "source=node-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
         "source=node-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
-        // user setting and workspace persistance
+        // user setting and workspace persistence
         // "source=node-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
         // "source=node-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
-        // quokka config persistance
+        // quokka config persistence
         "source=node-playground-quokka,target=/root/.quokka/,type=volume",
         // persist command history
         "source=node-playground-ash_history,target=/command_history,type=volume"

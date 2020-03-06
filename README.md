@@ -98,7 +98,7 @@ To try our your new env, you can start by running the supplied ["Hello, World!" 
 - The sample [devcontainer.json](.devcontainer/devcontainer.json) stores select folders as persistent volumes to speed up container rebuilds and avoid losing certain data and config. To clear out these settings, you can run `docker volume rm` for each volume that you'd like to reset. Note, you must also remove any containers that are using the volumes that you'd like to delete.
 
 ```bash
-# Sample persistance reset for select volumes
+# Sample persistence reset for select volumes
 docker volume rm node-playground-node_modules
 docker volume rm node-playground-extensions
 docker volume rm node-playground-extensions-insiders
