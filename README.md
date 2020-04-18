@@ -4,9 +4,13 @@ A Containerized playground for experimenting with Node.js using [vscode's Remote
 
 - [node-playground](#node-playground)
 - [Mission Statement](#mission-statement)
+- [Workspace Features](#workspace-features)
+  - [Live Javascript Scratchpad](#live-javascript-scratchpad)
+  - [Release Management Tooling](#release-management-tooling)
 - [Using This Guide](#using-this-guide)
 - [Pre-Req Checklist](#pre-req-checklist)
   - [Docker](#docker)
+  - [.ssh Folder](#ssh-folder)
   - [vscode](#vscode)
     - [vscode extensions](#vscode-extensions)
 - [General Troubleshooting](#general-troubleshooting)
@@ -37,6 +41,16 @@ These included extensions add integrated support for Quokka in vscode.
 You can give it a try by opening the [Days 'Till Xmas](./emoji/days-till-xmas/index.js) sample app and hitting one of the `Q` buttons in the status bar.
 
 ![](img/quokka.png)
+
+
+## Release Management Tooling
+
+The workspace includes a release management tool for our components: [Release It! 🚀](https://github.com/release-it/release-it#release-it-). If not using this tool, make sure to update the version manually in the target project's package.json, package-lock.json (if the project has these files), and the [git tag](https://github.com/release-it/release-it/blob/master/docs/git.md).
+
+```bash
+# Example minor release of this workspace project
+release-it minor
+```
 
 
 # Using This Guide
@@ -132,3 +146,4 @@ docker volume rm node-playground-ash_history
 ```
 
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.
+
