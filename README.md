@@ -55,6 +55,17 @@ All commands are assumed to be ran under `powershell` for Windows hosts and `bas
 docker run --rm -v ~:/data alpine ls /data
 ```
 
+## .ssh Folder
+This workspace is setup to be a starting development workspace. To hit the ground running with version control integration, the [devcontainer.json](.devcontainer/devcontainer.json) is set to mount files from your host `~/.ssh` folder. If you don't have one of these, you can create the following files on your host, or comment out the `.ssh/*` entries in the `mounts` section of the [devcontainer.json](.devcontainer/devcontainer.json) file.
+
+```bash
+# Expected ssh files on host
+~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+~/.ssh/known_hosts
+~/.ssh/authorized_keys
+```
+
 ## vscode
 - [vscode](https://code.visualstudio.com/download) or [vscode insiders](https://code.visualstudio.com/insiders/) if you're a cool kid.
   - You will need v1.38+ to use the `Remote - Containers` feature.
