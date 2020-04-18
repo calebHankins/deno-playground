@@ -4,9 +4,13 @@ A Containerized playground for experimenting with Node.js using [vscode's Remote
 
 - [node-playground](#node-playground)
 - [Mission Statement](#mission-statement)
+- [Workspace Features](#workspace-features)
+  - [Live Javascript Scratchpad](#live-javascript-scratchpad)
+  - [Release Management Tooling](#release-management-tooling)
 - [Using This Guide](#using-this-guide)
 - [Pre-Req Checklist](#pre-req-checklist)
   - [Docker](#docker)
+  - [.ssh Folder](#ssh-folder)
   - [vscode](#vscode)
     - [vscode extensions](#vscode-extensions)
 - [General Troubleshooting](#general-troubleshooting)
@@ -25,6 +29,30 @@ This guide aims to provide a starting Node playground to experiment with Node.js
 If you're brand new to vscode, you can check out their [series of intro vids to get started](https://code.visualstudio.com/docs/getstarted/introvideos#VSCode).
 
 
+# Workspace Features
+
+## Live Javascript Scratchpad
+[Quokka](https://quokkajs.com/) is a slick prototyping tool for javascript development. The Quokka configuration settings are persisted into a docker volume to persist changes through rebuilds.
+
+These included extensions add integrated support for Quokka in vscode.
+* [Quokka.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
+* [Quokka Statusbar Buttons](https://marketplace.visualstudio.com/items?itemName=sketchbuch.vsc-quokka-statusbar)
+
+You can give it a try by opening the [Days 'Till Xmas](./emoji/days-till-xmas/index.js) sample app and hitting one of the `Q` buttons in the status bar.
+
+![](img/quokka.png)
+
+
+## Release Management Tooling
+
+The workspace includes a release management tool for our components: [Release It! 🚀](https://github.com/release-it/release-it#release-it-). If not using this tool, make sure to update the version manually in the target project's package.json, package-lock.json (if the project has these files), and the [git tag](https://github.com/release-it/release-it/blob/master/docs/git.md).
+
+```bash
+# Example minor release of this workspace project
+release-it minor
+```
+
+
 # Using This Guide
 All commands referenced in this document will refer to '.' as the same folder in which this README can be found.
 
@@ -39,6 +67,17 @@ All commands are assumed to be ran under `powershell` for Windows hosts and `bas
 ```powershell
 # This should print the contents of your host OS home folder. 
 docker run --rm -v ~:/data alpine ls /data
+```
+
+## .ssh Folder
+This workspace is setup to be a starting development workspace. To hit the ground running with version control integration, the [devcontainer.json](.devcontainer/devcontainer.json) is set to mount files from your host `~/.ssh` folder. If you don't have one of these, you can create the following files on your host, or comment out the `.ssh/*` entries in the `mounts` section of the [devcontainer.json](.devcontainer/devcontainer.json) file.
+
+```bash
+# Expected ssh files on host
+~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+~/.ssh/known_hosts
+~/.ssh/authorized_keys
 ```
 
 ## vscode
@@ -107,3 +146,4 @@ docker volume rm node-playground-ash_history
 ```
 
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.
+

@@ -1,7 +1,8 @@
 /* eslint-disable no-nested-ternary */ // don't do this trash irl
 // Default our start date to now, but also accept the first command line arg
-const startDate = process.argv[2] ? new Date(process.argv[2])
-    : new Date();
+const startDate = deriveStartDate(process.argv[2]);
+
+console.log(`Start Date: ${startDate}`);
 
 // Figure out how many days we have to wait for our presents
 const daysTillXmas = getDaysTillXmas(startDate);
@@ -55,4 +56,28 @@ function getDaysBetween(StartDate, EndDate) {
 
     // so it's safe to divide by 24 hours
     return (start - end) / oneDay;
+}
+
+/**
+ * @desc Takes in a possible date string for the start date.
+ * If that was invalid, default to a new Date()
+ * @param {string} candidateDateString - possible date string for the start date
+ * @returns {Date} startDate
+ */
+function deriveStartDate(candidateDateString) {
+    let candidateDate = new Date(candidateDateString);
+    if (!isValidDate(candidateDate)) {
+        candidateDate = new Date();
+    }
+    return candidateDate;
+}
+
+/** Check if a date is valid
+ * @param {Date} d - date to check for validity
+ * @returns {boolean} test result for wether the date was valid or not
+ * @see https://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
+ * */
+function isValidDate(d) {
+    // eslint-disable-next-line no-restricted-globals
+    return d instanceof Date && !isNaN(d);
 }

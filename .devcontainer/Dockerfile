@@ -5,7 +5,8 @@ RUN apk --no-cache add \
     bash \
     ca-certificates \
     git \
-    openssh
+    openssh \
+    && npm install -g release-it
 
 # Command history persistence
 ENV PROMPT_COMMAND='history -a'
