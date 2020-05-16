@@ -1,5 +1,9 @@
 # node-playground
 
+[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/calebhankins/node-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/node-playground/)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/calebhankins/node-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/node-playground/)
+
+
 A Containerized playground for experimenting with Node.js using [vscode's Remote - Containers](https://code.visualstudio.com/docs/remote/containers) feature.
 
 - [node-playground](#node-playground)
