@@ -19,6 +19,7 @@ A Containerized playground for experimenting with Node.js using [vscode's Remote
 - [Reopen in a Dev Container and Start Hacking](#reopen-in-a-dev-container-and-start-hacking)
   - [Hello, World!](#hello-world)
 - [Container Persistence Through Rebuilds](#container-persistence-through-rebuilds)
+- [Related Links & Credits](#related-links--credits)
 
 # Mission Statement
 
@@ -147,3 +148,5 @@ docker volume rm node-playground-ash_history
 
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.
 
+# Related Links & Credits
+- [jankins-workspace](https://github.com/calebHankins/jankins-workspace), a containerized workspace for Jenkinsfile Shared Pipeline development using vscode's remote-container feature.
