@@ -172,4 +172,4 @@ See vscode remote's [Avoiding extension reinstalls on container rebuild](https:/
 
 # Related Links & Credits
 - [node-playground](https://github.com/calebHankins/node-playground) - A Containerized playground for experimenting with Node.js using vscode's Remote - Containers feature.
-- [jankins-workspace](https://github.com/calebHankins/jankins-workspace), a containerized workspace for Jenkinsfile Shared Pipeline development using vscode's remote-container feature.
+- [jankins-workspace](https://github.com/calebHankins/jankins-workspace) - A containerized workspace for Jenkinsfile Shared Pipeline development using vscode's remote-container feature.
