@@ -11,27 +11,28 @@
     },
     // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts-alpine npm run --production devContainerInit",
     "extensions": [
-        // "eamodio.gitlens",
-        // "editorconfig.editorconfig",
-        // "ms-azuretools.vscode-docker",
-        // "ms-vscode.vscode-typescript-tslint-plugin",
-        // "dbaeumer.vscode-eslint",
-        // "streetsidesoftware.code-spell-checker",
-        // "ms-vscode-remote.vscode-remote-extensionpack",
-        // "mhutchie.git-graph",
-        // "yzhang.markdown-all-in-one",
-        // "mutantdino.resourcemonitor",
-        // "bierner.emojisense",
-        // "hookyqr.beautify",
-        // "wallabyjs.quokka-vscode",
-        // "sketchbuch.vsc-quokka-statusbar"
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "dbaeumer.vscode-eslint",
+        "streetsidesoftware.code-spell-checker",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "mhutchie.git-graph",
+        "yzhang.markdown-all-in-one",
+        "mutantdino.resourcemonitor",
+        "bierner.emojisense",
+        "hookyqr.beautify",
+        "wallabyjs.quokka-vscode",
+        "sketchbuch.vsc-quokka-statusbar"
     ],
     "settings": {
         "remote.extensionKind": {
             // switch docker to use the 'ui' mode so it runs outside of the container.
             // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
             "ms-azuretools.vscode-docker": "ui"
-        }
+        },
+        "window.titleSeparator": " 🐳 💙 🦕 ",
     },
     "runArgs": [],
     "mounts": [
