@@ -8,6 +8,7 @@
 
 - [deno-playground](#deno-playground)
 - [Mission Statement](#mission-statement)
+- [Play With Deno Outside of Workspace](#play-with-deno-outside-of-workspace)
 - [Workspace Features](#workspace-features)
   - [Live Javascript Scratchpad](#live-javascript-scratchpad)
   - [Release Management Tooling](#release-management-tooling)
@@ -33,6 +34,17 @@ This guide aims to provide a starting playground to experiment with [deno](https
 
 If you're brand new to vscode, you can check out their [series of intro vids to get started](https://code.visualstudio.com/docs/getstarted/introvideos#VSCode).
 
+# Play With Deno Outside of Workspace
+- If you just want to build the workspace and play with deno from your host's command line:
+
+```bash
+# build
+docker build --rm -t deno-work .devcontainer
+# start container
+docker run --rm --entrypoint ash -it deno-work
+# run a simple ts program in deno (https://deno.land/#getting-started)
+deno run https://deno.land/std/examples/welcome.ts
+```
 
 # Workspace Features
 
