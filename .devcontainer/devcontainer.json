@@ -2,9 +2,14 @@
 {
     "name": "deno-playground",
     "dockerFile": "Dockerfile",
-    "appPort": [
-
-    ],
+    "appPort": [],
+    // "postCreateCommand": "npm install && npm run configureSSH"
+    "build": {
+        "args": {
+            // "BASE_IMAGE":"node:current-alpine", // use alternate base image // needs do be alpine based or the dockerfile needs massive changes
+        }
+    },
+    // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts-alpine npm run --production devContainerInit",
     "extensions": [
         // "eamodio.gitlens",
         // "editorconfig.editorconfig",
@@ -56,5 +61,4 @@
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions
         "SSH_TEMP_FOLDER_NAME": "/root/.ssh${env:USERPROFILE}"
     },
-    // "postCreateCommand": "npm install && npm run configureSSH"
 }

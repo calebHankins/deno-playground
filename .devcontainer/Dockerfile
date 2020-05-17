@@ -1,4 +1,5 @@
-FROM node:current-alpine
+ARG BASE_IMAGE=node:current-alpine
+FROM $BASE_IMAGE
 
 # Install some dev and QoL tooling
 RUN apk --no-cache add \
