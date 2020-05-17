@@ -1,12 +1,12 @@
-# node-playground
+# deno-playground
 
-[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/calebhankins/node-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/node-playground/)
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/calebhankins/node-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/node-playground/)
+[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/calebhankins/deno-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/deno-playground/)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/calebhankins/deno-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/deno-playground/)
 
 
 *A Containerized playground for experimenting with Node.js using [vscode's Remote - Containers](https://code.visualstudio.com/docs/remote/containers) feature.*
 
-- [node-playground](#node-playground)
+- [deno-playground](#deno-playground)
 - [Mission Statement](#mission-statement)
 - [Workspace Features](#workspace-features)
   - [Live Javascript Scratchpad](#live-javascript-scratchpad)
@@ -63,6 +63,12 @@ All commands referenced in this document will refer to '.' as the same folder in
 
 All commands are assumed to be ran under `powershell` for Windows hosts and `bash` for *nix hosts.
 
+<!-- !Add this section back if the init script or $HOME code is added back to the devcontainer.json
+# Initial Setup
+
+This repository is my local dev env and is meant to serve as an example or demo. It will need some finesse to meet your local host's needs. The [devcontainer.json](.devcontainer/devcontainer.json) will need to be tweaked to suite your environment before you start.
+
+**In my [devcontainer.json](.devcontainer/devcontainer.json) I am interacting with my `$HOME` directory's files via [docker's mount](https://docs.docker.com/storage/bind-mounts/) which you might not be in to. Please review the code this file intends to execute before running via [vscode remote containers](https://code.visualstudio.com/docs/remote/containers). and make sure you're good with that.** This workspace will still function without mounting your `$HOME`, but you will need to tweak the devcontainer and comment out anything that references mounting `${env:HOME}`, `${env:USERPROFILE}` or `~` first so the `docker run` command that vscode generates will not fail. -->
 
 # Pre-Req Checklist
 ## Docker
@@ -143,14 +149,15 @@ To try our your new env, you can start by running the supplied ["Hello, World!" 
 
 ```bash
 # Sample persistence reset for select volumes
-docker volume rm node-playground-node_modules
-docker volume rm node-playground-extensions
-docker volume rm node-playground-extensions-insiders
-docker volume rm node-playground-quokka
-docker volume rm node-playground-ash_history
+docker volume rm deno-playground-node_modules
+docker volume rm deno-playground-extensions
+docker volume rm deno-playground-extensions-insiders
+docker volume rm deno-playground-quokka
+docker volume rm deno-playground-ash_history
 ```
 
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.
 
 # Related Links & Credits
+- [node-playground](https://github.com/calebHankins/node-playground) - A Containerized playground for experimenting with Node.js using vscode's Remote - Containers feature.
 - [jankins-workspace](https://github.com/calebHankins/jankins-workspace), a containerized workspace for Jenkinsfile Shared Pipeline development using vscode's remote-container feature.

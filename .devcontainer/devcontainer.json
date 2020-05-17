@@ -1,25 +1,25 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json
 {
-    "name": "node-playground",
+    "name": "deno-playground",
     "dockerFile": "Dockerfile",
     "appPort": [
 
     ],
     "extensions": [
-        "eamodio.gitlens",
-        "editorconfig.editorconfig",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode.vscode-typescript-tslint-plugin",
-        "dbaeumer.vscode-eslint",
-        "streetsidesoftware.code-spell-checker",
-        "ms-vscode-remote.vscode-remote-extensionpack",
-        "mhutchie.git-graph",
-        "yzhang.markdown-all-in-one",
-        "mutantdino.resourcemonitor",
-        "bierner.emojisense",
-        "hookyqr.beautify",
-        "wallabyjs.quokka-vscode",
-        "sketchbuch.vsc-quokka-statusbar"
+        // "eamodio.gitlens",
+        // "editorconfig.editorconfig",
+        // "ms-azuretools.vscode-docker",
+        // "ms-vscode.vscode-typescript-tslint-plugin",
+        // "dbaeumer.vscode-eslint",
+        // "streetsidesoftware.code-spell-checker",
+        // "ms-vscode-remote.vscode-remote-extensionpack",
+        // "mhutchie.git-graph",
+        // "yzhang.markdown-all-in-one",
+        // "mutantdino.resourcemonitor",
+        // "bierner.emojisense",
+        // "hookyqr.beautify",
+        // "wallabyjs.quokka-vscode",
+        // "sketchbuch.vsc-quokka-statusbar"
     ],
     "settings": {
         "remote.extensionKind": {
@@ -33,28 +33,28 @@
         // review side effects here: https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild
         // .ssh staging folders. Windows file permissions are too loose for ssh to function normally. Staging these and copying to ~/.ssh to lock down permissions in the container
         // see https://code.visualstudio.com/docs/remote/troubleshooting#_fixing-ssh-file-permission-errors for more info
-        "source=${env:HOME}${env:USERPROFILE}/.ssh/id_rsa,target=/root/.ssh${env:USERPROFILE}/id_rsa,type=bind,consistency=cached",
-        "source=${env:HOME}${env:USERPROFILE}/.ssh/id_rsa.pub,target=/root/.ssh${env:USERPROFILE}/id_rsa.pub,type=bind,consistency=cached",
-        "source=${env:HOME}${env:USERPROFILE}/.ssh/known_hosts,target=/root/.ssh${env:USERPROFILE}/known_hosts,type=bind,consistency=cached",
-        "source=${env:HOME}${env:USERPROFILE}/.ssh/authorized_keys,target=/root/.ssh${env:USERPROFILE}/authorized_keys,type=bind,consistency=cached",
+        // "source=${env:HOME}${env:USERPROFILE}/.ssh/id_rsa,target=/root/.ssh${env:USERPROFILE}/id_rsa,type=bind,consistency=cached",
+        // "source=${env:HOME}${env:USERPROFILE}/.ssh/id_rsa.pub,target=/root/.ssh${env:USERPROFILE}/id_rsa.pub,type=bind,consistency=cached",
+        // "source=${env:HOME}${env:USERPROFILE}/.ssh/known_hosts,target=/root/.ssh${env:USERPROFILE}/known_hosts,type=bind,consistency=cached",
+        // "source=${env:HOME}${env:USERPROFILE}/.ssh/authorized_keys,target=/root/.ssh${env:USERPROFILE}/authorized_keys,type=bind,consistency=cached",
         // aws config
         // "source=${env:HOME}${env:USERPROFILE}/.aws,target=/root/.aws,type=bind",
         // let's load our modules into a persistent volume for performance and to alleviate any OS specific issue
-        "source=node-playground-node_modules,target=/workspaces/node-playground/node_modules,type=volume",
+        "source=deno-playground-node_modules,target=/workspaces/deno-playground/node_modules,type=volume",
         // extension code persistence
-        "source=node-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
-        "source=node-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+        "source=deno-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
+        "source=deno-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
         // user setting and workspace persistence
-        // "source=node-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
-        // "source=node-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
+        // "source=deno-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
+        // "source=deno-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
         // quokka config persistence
-        "source=node-playground-quokka,target=/root/.quokka/,type=volume",
+        "source=deno-playground-quokka,target=/root/.quokka/,type=volume",
         // persist command history
-        "source=node-playground-ash_history,target=/command_history,type=volume"
+        "source=deno-playground-ash_history,target=/command_history,type=volume"
     ],
     "containerEnv": {
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions
         "SSH_TEMP_FOLDER_NAME": "/root/.ssh${env:USERPROFILE}"
     },
-    "postCreateCommand": "npm install && npm run configureSSH"
+    // "postCreateCommand": "npm install && npm run configureSSH"
 }

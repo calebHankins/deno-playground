@@ -1,20 +1,21 @@
-/* eslint-disable no-console */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const { promisify } = require('util');
+const targetFileList = require('./lib/init').containerInit.sshFileList;
+const targetSSHFolderEnv = require('./lib/init').containerInit.sshFolderRemote;
 
 const readdir = promisify(fs.readdir);
 const fsCopy = promisify(fs.copyFile);
 const fsStat = promisify(fs.stat);
 const fsChmod = promisify(fs.chmod);
-const targetSSHFolderEnv = '/root/.ssh';
+
 const tempSSHFolderEnv = process.env.SSH_TEMP_FOLDER_NAME;
 console.log(`ssh folder detected as: ${targetSSHFolderEnv}`);
 console.log(`ssh temp folder detected as: ${tempSSHFolderEnv}`);
 
 /**
  * copySSHFiles from staging folder to final folder. Lock down permissions to allow git to function.
- * @param {string} tempSSHFolder - Staging folder where ssh file currently reside
+ * @param {string} tempSSHFolder - Staging folder where ssh file currently reside.
  * @param {string} targetSSHFolder - Final folder for ssh files
  * @param {string[]} targetFiles - White list of files to operate on
  * @returns {void}
@@ -60,5 +61,5 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
     }
 }
 
-const targetFiles = ['id_rsa', 'config', 'known_hosts', 'id_rsa.pub', 'authorized_keys'];
-copySSHFiles(tempSSHFolderEnv, targetSSHFolderEnv, targetFiles);
+
+copySSHFiles(tempSSHFolderEnv, targetSSHFolderEnv, targetFileList);
