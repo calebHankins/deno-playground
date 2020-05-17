@@ -4,7 +4,7 @@
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/calebhankins/deno-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/deno-playground/)
 
 
-*A Containerized playground for experimenting with Node.js using [vscode's Remote - Containers](https://code.visualstudio.com/docs/remote/containers) feature.*
+*A Containerized playground for experimenting with [deno](https://deno.land/) (a secure runtime for JavaScript and TypeScript) using [vscode's Remote - Containers](https://code.visualstudio.com/docs/remote/containers) feature.*
 
 - [deno-playground](#deno-playground)
 - [Mission Statement](#mission-statement)
@@ -27,7 +27,7 @@
 
 # Mission Statement
 
-This guide aims to provide a starting Node playground to experiment with Node.js programs in a standardized environment (described by Dockerfile(s)). This guide is written for developers using [vscode's remote container development](https://code.visualstudio.com/docs/remote/containers).
+This guide aims to provide a starting playground to experiment with [deno](https://deno.land/) in a standardized environment (described by Dockerfile(s)). This guide is written for developers using [vscode's remote container development](https://code.visualstudio.com/docs/remote/containers).
 
 ![architecture-containers](https://code.visualstudio.com/assets/docs/remote/containers/architecture-containers.png)
 
