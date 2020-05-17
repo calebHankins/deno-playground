@@ -12,8 +12,7 @@
         "print-env-info": "node index.js",
         "self-signed-cert-test-node": "node ./scripts/node-self-signed-cert-chain-detector.js",
         "configureSSH": "node ./scripts/configureSSH.js",
-        "devContainerInit": "npm install && node ./scripts/devContainerInit.js",
-        "groovyLint": "npm-groovy-lint --output 'json' | grep '^{' > './logs/groovyLintResults.json' && node /usr/src/jankins/scripts/checkGroovyLintResults.js"
+        "devContainerInit": "npm install && node ./scripts/devContainerInit.js"
     },
     "author": "Caleb 'chanki' Hankins",
     "license": "Apache-2.0",

@@ -15,7 +15,6 @@
 - [Using This Guide](#using-this-guide)
 - [Pre-Req Checklist](#pre-req-checklist)
   - [Docker](#docker)
-  - [.ssh Folder](#ssh-folder)
   - [vscode](#vscode)
     - [vscode extensions](#vscode-extensions)
 - [General Troubleshooting](#general-troubleshooting)
@@ -75,12 +74,7 @@ All commands referenced in this document will refer to '.' as the same folder in
 
 All commands are assumed to be ran under `powershell` for Windows hosts and `bash` for *nix hosts.
 
-<!-- !Add this section back if the init script or $HOME code is added back to the devcontainer.json
-# Initial Setup
 
-This repository is my local dev env and is meant to serve as an example or demo. It will need some finesse to meet your local host's needs. The [devcontainer.json](.devcontainer/devcontainer.json) will need to be tweaked to suite your environment before you start.
-
-**In my [devcontainer.json](.devcontainer/devcontainer.json) I am interacting with my `$HOME` directory's files via [docker's mount](https://docs.docker.com/storage/bind-mounts/) which you might not be in to. Please review the code this file intends to execute before running via [vscode remote containers](https://code.visualstudio.com/docs/remote/containers). and make sure you're good with that.** This workspace will still function without mounting your `$HOME`, but you will need to tweak the devcontainer and comment out anything that references mounting `${env:HOME}`, `${env:USERPROFILE}` or `~` first so the `docker run` command that vscode generates will not fail. -->
 
 # Pre-Req Checklist
 ## Docker
@@ -92,7 +86,15 @@ This repository is my local dev env and is meant to serve as an example or demo.
 docker run --rm -v ~:/data alpine ls /data
 ```
 
-## .ssh Folder
+
+<!-- !Add this section back if the init script or $HOME code is added back to the devcontainer.json
+<!-- ## .ssh Folder
+
+This repository is my local dev env and is meant to serve as an example or demo. It will need some finesse to meet your local host's needs. The [devcontainer.json](.devcontainer/devcontainer.json) will need to be tweaked to suite your environment before you start.
+
+**In my [devcontainer.json](.devcontainer/devcontainer.json) I am interacting with my `$HOME` directory's files via [docker's mount](https://docs.docker.com/storage/bind-mounts/) which you might not be in to. Please review the code this file intends to execute before running via [vscode remote containers](https://code.visualstudio.com/docs/remote/containers). and make sure you're good with that.** This workspace will still function without mounting your `$HOME`, but you will need to tweak the devcontainer and comment out anything that references mounting `${env:HOME}`, `${env:USERPROFILE}` or `~` first so the `docker run` command that vscode generates will not fail.
+
+
 This workspace is setup to be a starting development workspace. To hit the ground running with version control integration, the [devcontainer.json](.devcontainer/devcontainer.json) is set to mount files from your host `~/.ssh` folder. If you don't have one of these, you can create the following files on your host, or comment out the `.ssh/*` entries in the `mounts` section of the [devcontainer.json](.devcontainer/devcontainer.json) file.
 
 ```bash
@@ -101,7 +103,7 @@ This workspace is setup to be a starting development workspace. To hit the groun
 ~/.ssh/id_rsa.pub
 ~/.ssh/known_hosts
 ~/.ssh/authorized_keys
-```
+``` -->
 
 ## vscode
 - [vscode](https://code.visualstudio.com/download) or [vscode insiders](https://code.visualstudio.com/insiders/) if you're a cool kid.
