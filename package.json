@@ -12,7 +12,8 @@
         "print-env-info": "node index.js",
         "self-signed-cert-test-node": "node ./scripts/node-self-signed-cert-chain-detector.js",
         "configureSSH": "node ./scripts/configureSSH.js",
-        "devContainerInit": "npm install && node ./scripts/devContainerInit.js"
+        "devContainerInit": "npm install && node ./scripts/devContainerInit.js",
+        "howdy": "deno run ./deno/howdy.ts"
     },
     "author": "Caleb 'chanki' Hankins",
     "license": "Apache-2.0",

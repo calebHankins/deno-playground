@@ -1,5 +1,6 @@
 {
     "emojisense.languages": {
+        "typescript": true,
         "markdown": true,
         "git-commit": false,
         "plaintext": false,
@@ -7,6 +8,7 @@
         "javascript": true
     },
     "window.titleSeparator": " 🦕 ",
+    // "window.titleSeparator": " 🐳 💙 🦕 ",
     "emojisense.unicodeCompletionsEnabled": true,
     "emojisense.markupCompletionsEnabled": true,
     "emojisense.showOnColon": true,

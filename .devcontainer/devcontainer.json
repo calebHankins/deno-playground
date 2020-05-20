@@ -32,7 +32,6 @@
             // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
             "ms-azuretools.vscode-docker": "ui"
         },
-        "window.titleSeparator": " 🐳 💙 🦕 ",
     },
     "runArgs": [],
     "mounts": [
