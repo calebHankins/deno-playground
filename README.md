@@ -173,5 +173,5 @@ docker volume rm deno-playground-ash_history
 See vscode remote's [Avoiding extension reinstalls on container rebuild](https://code.visualstudio.com/docs/remote/containers-advanced#_avoiding-extension-reinstalls-on-container-rebuild) for more details.
 
 # Related Links & Credits
-- [node-playground](https://github.com/calebHankins/node-playground) - A Containerized playground for experimenting with Node.js using vscode's Remote - Containers feature.
-- [jankins-workspace](https://github.com/calebHankins/jankins-workspace) - A containerized workspace for Jenkinsfile Shared Pipeline development using vscode's remote-container feature.
+- [node-playground](https://github.com/calebHankins/node-playground) - A containerized playground for experimenting with Node.js using vscode's Remote - Containers feature.
+- [jankins-workspace](https://github.com/calebHankins/jankins-workspace) - A containerized workspace for Jenkinsfile Shared Pipeline development using vscode's Remote - Containers feature.
