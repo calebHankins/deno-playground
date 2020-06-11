@@ -23,6 +23,10 @@ RUN openssl s_client -showcerts  -connect schemastore.azurewebsites.net:443 2>&1
   && chmod 644 /usr/local/share/ca-certificates/*.crt \
   && update-ca-certificates
 
+# Tell node & python to trust the new cert bundles in addition to the built-ins
+ENV NODE_EXTRA_CA_CERTS /etc/ssl/certs/ca-certificates.crt
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 # Command history persistence
 ENV PROMPT_COMMAND='history -a'
 ENV HISTFILE=/command_history/.ash_history
