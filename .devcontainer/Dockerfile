@@ -8,6 +8,8 @@ RUN apk --no-cache add \
     git \
     openssh \
     binutils \
+    coreutils \
+    dos2unix \
     curl \
     && npm install -g release-it
 
