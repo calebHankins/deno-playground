@@ -7,6 +7,7 @@ RUN apk --no-cache add \
     ca-certificates \
     git \
     openssh \
+    openssl \
     binutils \
     coreutils \
     dos2unix \
