@@ -1,5 +1,5 @@
 ARG BASE_IMAGE=denoland/deno:alpine
-FROM $BASE_IMAGE
+FROM $BASE_IMAGE AS base-env
 
 # Confirm our deno is on the path and check the version
 RUN deno --version
@@ -40,13 +40,20 @@ ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV PROMPT_COMMAND='history -a'
 ENV HISTFILE=/command_history/.ash_history
 
+# Run smoke tests in separate build phase
+FROM base-env AS smoke-test-env
+
 # Install node dev dependencies and whatnot
 ENV NODE_ENV development
 
 # Smoke test to make sure deno, node, and npm are all still working in the container
-RUN mkdir -p /workspaces/deno-playground
-WORKDIR /workspaces/deno-playground
+RUN mkdir -p /workspaces/deno-playground-smoke
+WORKDIR /workspaces/deno-playground-smoke
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm test
+
+FROM base-env AS workspace-env
+RUN echo NODE_ENV:$NODE_ENV
+RUN deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)
