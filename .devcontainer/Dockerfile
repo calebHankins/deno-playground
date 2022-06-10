@@ -18,7 +18,6 @@ RUN apk --no-cache add \
     nodejs \
     npm \
     && npm install -g npm \
-    && node --version && npm --version \
     && npm install -g release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
