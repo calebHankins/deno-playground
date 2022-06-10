@@ -15,7 +15,7 @@ RUN apk --no-cache add \
     coreutils \
     dos2unix \
     curl \
-    nodejs-current \
+    nodejs \
     npm \
     && npm install --location=global npm \
     && npm install --location=global release-it
