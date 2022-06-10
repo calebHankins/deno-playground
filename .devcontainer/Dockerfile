@@ -43,7 +43,9 @@ ENV HISTFILE=/command_history/.ash_history
 # Install node dev dependencies and whatnot
 ENV NODE_ENV development
 
-# Smoke test to make sure deno & node are still working
+# Smoke test to make sure deno, node, and npm are all still working in the container
+RUN mkdir -p /workspaces/deno-playground
+WORKDIR /workspaces/deno-playground
 COPY package*.json ./
 RUN npm install
 COPY . .
