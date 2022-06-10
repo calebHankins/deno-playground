@@ -42,3 +42,9 @@ ENV HISTFILE=/command_history/.ash_history
 
 # Install node dev dependencies and whatnot
 ENV NODE_ENV development
+
+# Smoke test to make sure deno & node are still working
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm test

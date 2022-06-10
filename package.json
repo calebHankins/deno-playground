@@ -9,6 +9,7 @@
     },
     "scripts": {
         "start": "node index.js",
+        "test": "deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)",
         "print-env-info": "node index.js",
         "self-signed-cert-test-node": "node ./scripts/node-self-signed-cert-chain-detector.js",
         "configureSSH": "node ./scripts/configureSSH.js",
