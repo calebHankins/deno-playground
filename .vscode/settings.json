@@ -13,13 +13,15 @@
     "emojisense.markupCompletionsEnabled": true,
     "emojisense.showOnColon": true,
     "cSpell.words": [
-        "POSIX",
-        "QIDAQAB",
         "appdata",
         "bierner",
+        "buildcache",
+        "Buildx",
         "charmap",
+        "davidanson",
         "dbaeumer",
         "deno",
+        "denoland",
         "devcontainer",
         "eamodio",
         "editorconfig",
@@ -36,8 +38,11 @@
         "mhutchie",
         "mutantdino",
         "openssh",
+        "POSIX",
         "promisify",
+        "QIDAQAB",
         "quokka",
+        "remotehub",
         "resourcemonitor",
         "shwoopsie",
         "sketchbuch",
@@ -46,5 +51,16 @@
         "vids",
         "wallabyjs",
         "yzhang"
-    ]
+    ],
+    "cSpell.useGitignore": true,
+    "explorer.excludeGitIgnore": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": true
+    },
+    "markdownlint.config": {
+        "MD028": false,
+        "MD025": {
+            "front_matter_title": ""
+        }
+    }
 }
