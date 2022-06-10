@@ -17,9 +17,9 @@ RUN apk --no-cache add \
     curl \
     nodejs \
     npm \
-    && npm install --location=global npm \
+    && npm install -g npm \
     && node --version && npm --version \
-    && npm install --location=global release-it
+    && npm install -g release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
 # Comment this out for non-corporate envs where you might have MitM attacks from IP loss prevention software like Netskope
