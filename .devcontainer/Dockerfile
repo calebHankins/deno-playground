@@ -18,7 +18,7 @@ RUN apk --no-cache add \
     nodejs \
     npm \
     && npm install --location=global npm \
-    && node --version && npm --version
+    && node --version && npm --version \
     && npm install --location=global release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
