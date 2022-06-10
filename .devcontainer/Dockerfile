@@ -4,9 +4,6 @@ FROM $BASE_IMAGE
 # Confirm our deno is on the path and check the version
 RUN deno --version
 
-# Install node.js
-RUN apk add nodejs
-
 # Install some dev and QoL tooling
 RUN apk --no-cache add \
     bash \
@@ -18,6 +15,8 @@ RUN apk --no-cache add \
     coreutils \
     dos2unix \
     curl \
+    nodejs \
+    npm \
     && npm install --location=global release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
