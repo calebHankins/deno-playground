@@ -1,0 +1,16 @@
+{
+    "name": "deno-playground-smoke",
+    "version": "0.0.1",
+    "description": "Simple smoke test wrapper for deno playground",
+    "main": "deno",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:calebHankins/deno-playground.git"
+    },
+    "scripts": {
+        "start": "deno",
+        "test": "deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)"
+    },
+    "author": "Caleb 'chanki' Hankins",
+    "license": "Apache-2.0"
+}

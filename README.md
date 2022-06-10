@@ -1,7 +1,7 @@
 # deno-playground
 
-[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/calebhankins/deno-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/deno-playground/)
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/calebhankins/deno-playground.svg?style=flat-square)](https://hub.docker.com/r/calebhankins/deno-playground/)
+[![GitHub Actions](https://github.com/calebHankins/deno-playground/workflows/.github/workflows/build-docker-images.yaml/badge.svg)](https://github.com/calebHankins/deno-playground/actions)
+[![Version](https://img.shields.io/github/package-json/v/calebHankins/deno-playground/master)](https://github.com/calebHankins/deno-playground/blob/master/package.json)
 
 
 *A Containerized playground for experimenting with [deno](https://deno.land/) (a secure runtime for JavaScript and TypeScript) using [vscode's Remote - Containers](https://code.visualstudio.com/docs/remote/containers) feature.*

@@ -24,14 +24,16 @@
         "bierner.emojisense",
         "hookyqr.beautify",
         "wallabyjs.quokka-vscode",
-        "sketchbuch.vsc-quokka-statusbar"
+        "sketchbuch.vsc-quokka-statusbar",
+        "github.vscode-pull-request-github",
+        "github.remotehub"
     ],
     "settings": {
         "remote.extensionKind": {
             // switch docker to use the 'ui' mode so it runs outside of the container.
             // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
             "ms-azuretools.vscode-docker": "ui"
-        },
+        }
     },
     "runArgs": [],
     "mounts": [
@@ -60,5 +62,5 @@
     "containerEnv": {
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions
         "SSH_TEMP_FOLDER_NAME": "/root/.ssh${env:USERPROFILE}"
-    },
+    }
 }

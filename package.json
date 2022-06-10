@@ -1,6 +1,6 @@
 {
     "name": "deno-playground",
-    "version": "0.2.1",
+    "version": "0.3.2",
     "description": "Containerized playground for experimenting with deno",
     "main": "index.js",
     "repository": {
@@ -9,11 +9,15 @@
     },
     "scripts": {
         "start": "node index.js",
+        "test": "deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)",
         "print-env-info": "node index.js",
         "self-signed-cert-test-node": "node ./scripts/node-self-signed-cert-chain-detector.js",
         "configureSSH": "node ./scripts/configureSSH.js",
         "devContainerInit": "npm install && node ./scripts/devContainerInit.js",
-        "howdy": "deno run ./deno/howdy.ts"
+        "howdy": "deno run ./deno/howdy.ts",
+        "release:patch": "npx release-it patch",
+        "release:minor": "npx release-it minor",
+        "release:major": "npx release-it major"
     },
     "author": "Caleb 'chanki' Hankins",
     "license": "Apache-2.0",
@@ -30,6 +34,7 @@
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-json": "^2.1.1"
+        "eslint-plugin-json": "^2.1.1",
+        "release-it": "^15.0.0"
     }
 }
