@@ -41,6 +41,10 @@
         // .ssh staging folders. Windows file permissions are too loose for ssh to function normally. Staging these and copying to ~/.ssh to lock down permissions in the container
         // see https://code.visualstudio.com/docs/remote/troubleshooting#_fixing-ssh-file-permission-errors for more info
         "source=${env:HOME}${env:USERPROFILE}/.ssh/,target=/root/.ssh${env:USERPROFILE}/,type=bind,consistency=cached",
+
+        // host gitconfig
+        "source=${env:HOME}${env:USERPROFILE}/.gitconfig/,target=/root/.gitconfig,type=bind,consistency=cached",
+
         // aws config
         // "source=${env:HOME}${env:USERPROFILE}/.aws,target=/root/.aws,type=bind",
         // let's load our modules into a persistent volume for performance and to alleviate any OS specific issue
