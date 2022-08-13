@@ -36,6 +36,8 @@
         "hookyqr",
         "hsts",
         "inputfile",
+        "jankins",
+        "Jenkinsfile",
         "libc",
         "localedef",
         "mhutchie",
@@ -51,6 +53,7 @@
         "sketchbuch",
         "streetsidesoftware",
         "tink",
+        "USERPROFILE",
         "vids",
         "wallabyjs",
         "yzhang"
@@ -64,6 +67,7 @@
         "MD028": false,
         "MD025": {
             "front_matter_title": ""
-        }
+        },
+        "MD026": false
     }
 }
