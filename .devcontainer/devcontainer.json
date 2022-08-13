@@ -44,7 +44,7 @@
         "source=${env:HOME}${env:USERPROFILE}/.ssh/,target=/root/.ssh${env:USERPROFILE}/,type=bind,consistency=cached",
 
         // host gitconfig
-        "source=${env:HOME}${env:USERPROFILE}/.gitconfig/,target=/root/.gitconfig,type=bind,consistency=cached",
+        // "source=${env:HOME}${env:USERPROFILE}/.gitconfig/,target=/root/.gitconfig,type=bind,consistency=cached",
 
         // aws config
         // "source=${env:HOME}${env:USERPROFILE}/.aws,target=/root/.aws,type=bind",
