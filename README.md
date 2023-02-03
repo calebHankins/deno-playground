@@ -14,17 +14,22 @@
   - [Using This Guide](#using-this-guide)
   - [Pre-Req Checklist](#pre-req-checklist)
     - [Docker](#docker)
+    - [vscode](#vscode)
+      - [vscode extensions](#vscode-extensions)
+  - [General Troubleshooting](#general-troubleshooting)
+    - [Reloading the Window / Rebuilding the Container](#reloading-the-window--rebuilding-the-container)
+    - [Resetting vscode AppData](#resetting-vscode-appdata)
     - [A Note Concerning Self-Signed Certificates](#a-note-concerning-self-signed-certificates)
   - [Reopen in a Dev Container and Start Hacking](#reopen-in-a-dev-container-and-start-hacking)
     - [Hello, World!](#hello-world)
   - [Container Persistence Through Rebuilds](#container-persistence-through-rebuilds)
-  - [Related Links & Credits](#related-links--credits)
+  - [Related Links \& Credits](#related-links--credits)
 
 ## Mission Statement
 
 This guide aims to provide a starting playground to experiment with [deno](https://deno.land/) in a standardized environment (described by Dockerfile(s)). This guide is written for developers using [vscode's remote container development](https://code.visualstudio.com/docs/remote/containers).
 
-![architecture-containers](https://code.visualstudio.com/assets/docs/remote/containers/architecture-containers.png)
+![architecture-containers](https://code.visualstudio.com/assets/docs/devcontainers/containers/architecture-containers.png)
 
 If you're brand new to vscode, you can check out their [series of intro vids to get started](https://code.visualstudio.com/docs/getstarted/introvideos#VSCode).
 
