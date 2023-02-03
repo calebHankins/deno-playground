@@ -10,30 +10,34 @@
         }
     },
     // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts-alpine npm run --production devContainerInit",
-    "extensions": [
-        "eamodio.gitlens",
-        "editorconfig.editorconfig",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode.vscode-typescript-tslint-plugin",
-        "dbaeumer.vscode-eslint",
-        "streetsidesoftware.code-spell-checker",
-        "ms-vscode-remote.vscode-remote-extensionpack",
-        "mhutchie.git-graph",
-        "yzhang.markdown-all-in-one",
-        "davidanson.vscode-markdownlint",
-        "mutantdino.resourcemonitor",
-        "bierner.emojisense",
-        "hookyqr.beautify",
-        "wallabyjs.quokka-vscode",
-        "sketchbuch.vsc-quokka-statusbar",
-        "github.vscode-pull-request-github",
-        "github.remotehub"
-    ],
-    "settings": {
-        "remote.extensionKind": {
-            // switch docker to use the 'ui' mode so it runs outside of the container.
-            // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
-            "ms-azuretools.vscode-docker": "ui"
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "eamodio.gitlens",
+                "editorconfig.editorconfig",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode.vscode-typescript-tslint-plugin",
+                "dbaeumer.vscode-eslint",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "mhutchie.git-graph",
+                "yzhang.markdown-all-in-one",
+                "davidanson.vscode-markdownlint",
+                "mutantdino.resourcemonitor",
+                "bierner.emojisense",
+                "hookyqr.beautify",
+                "wallabyjs.quokka-vscode",
+                "sketchbuch.vsc-quokka-statusbar",
+                "github.vscode-pull-request-github",
+                "github.remotehub"
+            ],
+            "settings": {
+                "remote.extensionKind": {
+                    // switch docker to use the 'ui' mode so it runs outside of the container.
+                    // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
+                    "ms-azuretools.vscode-docker": "ui"
+                }
+            }
         }
     },
     "runArgs": [],
@@ -42,17 +46,15 @@
         // .ssh staging folders. Windows file permissions are too loose for ssh to function normally. Staging these and copying to ~/.ssh to lock down permissions in the container
         // see https://code.visualstudio.com/docs/remote/troubleshooting#_fixing-ssh-file-permission-errors for more info
         "source=${env:HOME}${env:USERPROFILE}/.ssh/,target=/root/.ssh${env:USERPROFILE}/,type=bind,consistency=cached",
-
         // host gitconfig
         // "source=${env:HOME}${env:USERPROFILE}/.gitconfig/,target=/root/.gitconfig,type=bind,consistency=cached",
-
         // aws config
         // "source=${env:HOME}${env:USERPROFILE}/.aws,target=/root/.aws,type=bind",
         // let's load our modules into a persistent volume for performance and to alleviate any OS specific issue
         "source=deno-playground-node_modules,target=/workspaces/deno-playground/node_modules,type=volume",
-        // extension code persistence
-        "source=deno-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
-        "source=deno-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+        // // extension code persistence
+        // "source=deno-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
+        // "source=deno-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
         // user setting and workspace persistence
         // "source=deno-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
         // "source=deno-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",

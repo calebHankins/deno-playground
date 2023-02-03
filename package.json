@@ -1,6 +1,6 @@
 {
     "name": "deno-playground",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "description": "Containerized playground for experimenting with deno",
     "main": "index.js",
     "repository": {
@@ -15,6 +15,7 @@
         "configureSSH": "node ./scripts/configureSSH.js",
         "devContainerInit": "npm install && node ./scripts/devContainerInit.js",
         "howdy": "deno run ./deno/howdy.ts",
+        "release": "npx release-it",
         "release:patch": "npx release-it patch",
         "release:minor": "npx release-it minor",
         "release:major": "npx release-it major"
