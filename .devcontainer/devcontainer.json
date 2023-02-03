@@ -50,9 +50,9 @@
         // "source=${env:HOME}${env:USERPROFILE}/.aws,target=/root/.aws,type=bind",
         // let's load our modules into a persistent volume for performance and to alleviate any OS specific issue
         "source=deno-playground-node_modules,target=/workspaces/deno-playground/node_modules,type=volume",
-        // extension code persistence
-        "source=deno-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
-        "source=deno-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+        // // extension code persistence
+        // "source=deno-playground-extensions,target=/root/.vscode-server/extensions,type=volume",
+        // "source=deno-playground-extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
         // user setting and workspace persistence
         // "source=deno-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
         // "source=deno-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
