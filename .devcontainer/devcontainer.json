@@ -30,14 +30,14 @@
                 "sketchbuch.vsc-quokka-statusbar",
                 "github.vscode-pull-request-github",
                 "github.remotehub"
-            ]
-        }
-    },
-    "settings": {
-        "remote.extensionKind": {
-            // switch docker to use the 'ui' mode so it runs outside of the container.
-            // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
-            "ms-azuretools.vscode-docker": "ui"
+            ],
+            "settings": {
+                "remote.extensionKind": {
+                    // switch docker to use the 'ui' mode so it runs outside of the container.
+                    // https://github.com/microsoft/vscode-docker/wiki/Docker-in-a-Dev-Container#option-b-docker-as-a-ui-extension
+                    "ms-azuretools.vscode-docker": "ui"
+                }
+            }
         }
     },
     "runArgs": [],
