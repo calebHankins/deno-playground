@@ -1,29 +1,36 @@
-
-// const fs = require('fs');
-// const path = require('path');
-const request = require('request');
+const https = require('https');
 
 // const ca = fs.readFileSync(path.join(__dirname, 'certs', 'client', 'chain.pem'));
 const port = process.argv[2] || 443;
 const hostname = process.argv[3] || 'schemastore.azurewebsites.net';
 
 const options = {
-    url: `https://${hostname}:${port}`,
-    // , agentOptions: {
-    // ca: ca
-    // }
+    hostname,
+    port,
+    path: '/',
+    method: 'GET',
+    // , ca: ca
 };
 
-console.log(`About to make a request to ${options.url} to see if we have self-signed cert issues...`);
+console.log(`About to make a request to https://${hostname}:${port} to see if we have self-signed cert issues...`);
 
-request.get(options, (err, resp) => {
+const req = https.request(options, (res) => {
     console.log('request made, checking');
-    if (err) {
-        console.log(err);
-        console.log('yep, we got errors...');
-    } else {
-        console.log(resp.body);
-        console.log('nope, we good!');
-    }
+    res.on('data', (d) => {
+        process.stdout.write(d);
+    });
+});
+
+req.on('error', (err) => {
+    console.error(err);
+    console.log('yep, we got errors...');
+    process.exit(1); // exit with non-zero code
+});
+
+req.on('close', () => {
+    console.log('');
+    console.log('nope, we good!');
     console.log('request complete');
 });
+
+req.end();

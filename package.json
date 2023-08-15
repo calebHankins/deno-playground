@@ -1,6 +1,6 @@
 {
     "name": "deno-playground",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "description": "Containerized playground for experimenting with deno",
     "main": "index.js",
     "repository": {
@@ -27,7 +27,6 @@
         "mkdirp": "^1.0.3",
         "os": "^0.1.1",
         "path": "^0.12.7",
-        "request": "^2.88.2",
         "touch": "^3.1.0",
         "yn": "^4.0.0"
     },
@@ -36,6 +35,6 @@
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-plugin-import": "^2.20.1",
         "eslint-plugin-json": "^2.1.1",
-        "release-it": "^15.6.0"
+        "release-it": "^16.1.5"
     }
 }
