@@ -6,7 +6,8 @@ RUN deno --version
 
 # Install some dev and QoL tooling
 RUN apk --no-cache add \
-    gcompat \
+    gcompat
+RUN apk --no-cache add \
     bash \
     ca-certificates \
     git \
