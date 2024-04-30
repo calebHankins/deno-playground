@@ -7,7 +7,6 @@ RUN deno --version
 # Install some dev and QoL tooling
 RUN apk --no-cache add \
     libgcc \
-    glibc-bin \
     libc6-compat \
     bash \
     ca-certificates \
