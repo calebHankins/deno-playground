@@ -5,6 +5,7 @@ FROM $BASE_IMAGE AS base-env
 RUN deno --version
 
 # Install some dev and QoL tooling
+RUN apk upgrade
 RUN apk --no-cache add \
     gcompat
 RUN apk --no-cache add bash
@@ -18,6 +19,8 @@ RUN apk --no-cache add dos2unix
 RUN apk --no-cache add curl
 RUN apk --no-cache add nodejs
 RUN apk --no-cache add npm
+RUN node --version
+RUN npm --version
 # RUN npm install -g npm
 RUN npm install -g release-it
 
