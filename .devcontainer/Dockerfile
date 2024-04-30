@@ -7,20 +7,19 @@ RUN deno --version
 # Install some dev and QoL tooling
 RUN apk --no-cache add \
     gcompat
-RUN apk --no-cache add \
-    bash \
-    ca-certificates \
-    git \
-    openssh \
-    openssl \
-    binutils \
-    coreutils \
-    dos2unix \
-    curl \
-    nodejs \
-    npm \
-    && npm install -g npm \
-    && npm install -g release-it
+RUN apk --no-cache add bash
+RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add git
+RUN apk --no-cache add openssh
+RUN apk --no-cache add openssl
+RUN apk --no-cache add binutils
+RUN apk --no-cache add coreutils
+RUN apk --no-cache add dos2unix
+RUN apk --no-cache add curl
+RUN apk --no-cache add nodejs
+RUN apk --no-cache add npm
+RUN npm install -g npm
+RUN npm install -g release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
 # Comment this out for non-corporate envs where you might have MitM attacks from IP loss prevention software like Netskope
