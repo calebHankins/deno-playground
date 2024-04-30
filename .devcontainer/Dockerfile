@@ -22,10 +22,10 @@ RUN apk --no-cache add libstdc++
 RUN apk --no-cache add --update nodejs
 RUN apk --no-cache add --update npm
 RUN echo "hello, world!"
-RUN node --version
-RUN npm --version
-# RUN npm install -g npm
-RUN npm install -g release-it
+# RUN node --version
+# RUN npm --version
+# # RUN npm install -g npm
+# RUN npm install -g release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
 # Comment this out for non-corporate envs where you might have MitM attacks from IP loss prevention software like Netskope
