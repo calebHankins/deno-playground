@@ -19,6 +19,7 @@ RUN apk --no-cache add dos2unix
 RUN apk --no-cache add curl
 RUN apk --no-cache add nodejs
 RUN apk --no-cache add npm
+RUN echo "hello, world!"
 RUN node --version
 RUN npm --version
 # RUN npm install -g npm
