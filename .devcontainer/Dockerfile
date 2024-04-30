@@ -17,8 +17,8 @@ RUN apk --no-cache add binutils
 RUN apk --no-cache add coreutils
 RUN apk --no-cache add dos2unix
 RUN apk --no-cache add curl
-RUN apk --no-cache add nodejs
-RUN apk --no-cache add npm
+RUN apk --no-cache add --update nodejs
+RUN apk --no-cache add --update npm
 RUN echo "hello, world!"
 RUN node --version
 RUN npm --version
