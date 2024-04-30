@@ -18,6 +18,7 @@ RUN apk --no-cache add coreutils
 RUN apk --no-cache add dos2unix
 RUN apk --no-cache add curl
 RUN apk --no-cache add libgcc
+RUN apk --no-cache add libstdc++
 RUN apk --no-cache add --update nodejs
 RUN apk --no-cache add --update npm
 RUN echo "hello, world!"
