@@ -63,4 +63,4 @@ RUN npm test
 
 FROM base-env AS workspace-env
 RUN echo NODE_ENV:$NODE_ENV
-RUN deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)
+# RUN deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)
