@@ -18,7 +18,7 @@ RUN apk --no-cache add dos2unix
 RUN apk --no-cache add curl
 RUN apk --no-cache add nodejs
 RUN apk --no-cache add npm
-RUN npm install -g npm
+# RUN npm install -g npm
 RUN npm install -g release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
