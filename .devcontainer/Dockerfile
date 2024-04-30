@@ -5,8 +5,8 @@ FROM $BASE_IMAGE AS base-env
 RUN deno --version
 
 # Install some dev and QoL tooling
-RUN apk add --no-cache --reinstall gcc
 RUN apk --no-cache add \
+    gcc \
     bash \
     ca-certificates \
     git \
