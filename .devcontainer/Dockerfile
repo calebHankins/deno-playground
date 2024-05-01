@@ -23,7 +23,7 @@ RUN apk --no-cache add libstdc++
 RUN apk --no-cache add --update nodejs
 RUN apk --no-cache add --update npm
 RUN echo "hello, world!"
-# RUN node --version
+RUN node --version
 # RUN npm --version
 # # RUN npm install -g npm
 # RUN npm install -g release-it
