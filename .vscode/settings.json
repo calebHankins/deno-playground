@@ -62,7 +62,7 @@
     "cSpell.useGitignore": true,
     "explorer.excludeGitIgnore": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.markdownlint": true
+        "source.fixAll.markdownlint": "explicit"
     },
     "markdownlint.config": {
         "MD028": false,
