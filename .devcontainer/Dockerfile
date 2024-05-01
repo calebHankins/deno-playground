@@ -20,6 +20,7 @@ RUN apk --no-cache add curl
 RUN apk info | grep -e '^libstdc++$' || (apk update && apk add libstdc++)
 RUN apk --no-cache add libgcc
 RUN apk --no-cache add libstdc++
+RUN apk --no-cache add musl
 RUN apk --no-cache add --update nodejs
 RUN apk --no-cache add --update npm
 RUN echo "hello, world!"
