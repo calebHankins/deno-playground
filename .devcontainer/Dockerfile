@@ -5,29 +5,20 @@ FROM $BASE_IMAGE AS base-env
 RUN deno --version
 
 # Install some dev and QoL tooling
-RUN apk upgrade
 RUN apk --no-cache add \
-    gcompat
-RUN apk --no-cache add bash
-RUN apk --no-cache add ca-certificates
-RUN apk --no-cache add git
-RUN apk --no-cache add openssh
-RUN apk --no-cache add openssl
-RUN apk --no-cache add binutils
-RUN apk --no-cache add coreutils
-RUN apk --no-cache add dos2unix
-RUN apk --no-cache add curl
-RUN apk info | grep -e '^libstdc++$' || (apk update && apk add libstdc++)
-RUN apk --no-cache add libgcc
-RUN apk --no-cache add libstdc++
-RUN apk --no-cache add musl
-RUN apk --no-cache add --update nodejs
-RUN apk --no-cache add --update npm
-RUN echo "hello, world!"
-RUN node --version
-# RUN npm --version
-# # RUN npm install -g npm
-# RUN npm install -g release-it
+    bash \
+    ca-certificates \
+    git \
+    openssh \
+    openssl \
+    binutils \
+    coreutils \
+    dos2unix \
+    curl \
+    nodejs \
+    npm \
+    && npm install -g npm \
+    && npm install -g release-it
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
 # Comment this out for non-corporate envs where you might have MitM attacks from IP loss prevention software like Netskope
@@ -65,4 +56,4 @@ RUN npm test
 
 FROM base-env AS workspace-env
 RUN echo NODE_ENV:$NODE_ENV
-# RUN deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)
+RUN deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)
