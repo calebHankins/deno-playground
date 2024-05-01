@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=denoland/deno:alpine-1.41.0
+ARG BASE_IMAGE=denoland/deno:alpine-1.40.5
 FROM $BASE_IMAGE AS base-env
 
 # Confirm our deno is on the path and check the version
