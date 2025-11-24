@@ -6,17 +6,16 @@
     "postCreateCommand": "npm install && npm run configureSSH",
     "build": {
         "args": {
-            // "BASE_IMAGE":"node:current-alpine", // use alternate base image // needs do be alpine based or the dockerfile needs massive changes
+            // "BASE_IMAGE":"denoland/deno", // use alternate base image (unpinned/latest) to keep workspace evergreen
         }
     },
-    // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts-alpine npm run --production devContainerInit",
+    // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts npm run --production devContainerInit",
     "customizations": {
         "vscode": {
             "extensions": [
                 "eamodio.gitlens",
                 "editorconfig.editorconfig",
                 "ms-azuretools.vscode-docker",
-                "ms-vscode.vscode-typescript-tslint-plugin",
                 "dbaeumer.vscode-eslint",
                 "streetsidesoftware.code-spell-checker",
                 "ms-vscode-remote.vscode-remote-extensionpack",
@@ -25,10 +24,9 @@
                 "davidanson.vscode-markdownlint",
                 "mutantdino.resourcemonitor",
                 "bierner.emojisense",
-                "wallabyjs.quokka-vscode",
-                "sketchbuch.vsc-quokka-statusbar",
                 "github.vscode-pull-request-github",
-                "github.remotehub"
+                "github.remotehub",
+                "ms-vscode-remote.vscode-remote-extensionpack"
             ],
             "settings": {
                 "remote.extensionKind": {
@@ -57,10 +55,11 @@
         // user setting and workspace persistence
         // "source=deno-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
         // "source=deno-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
-        // quokka config persistence
-        "source=deno-playground-quokka,target=/root/.quokka/,type=volume",
         // persist command history
-        "source=deno-playground-ash_history,target=/command_history,type=volume"
+        "source=deno-playground-command_history,target=/command_history,type=volume"
+        ,
+        // persist gh config and tokens between container rebuilds
+        "source=deno-playground-gh-config,target=/root/.config/gh,type=volume"
     ],
     "containerEnv": {
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions

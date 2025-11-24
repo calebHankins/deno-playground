@@ -1,12 +1,12 @@
 // Init Jankins config. Create stubs for any devcontainer mount targets so the startup won't fail.
-const touch = require('touch');
-const mkdirp = require('mkdirp');
+const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const fs = require('fs');
 const { promisify } = require('util');
 const { parse } = require('comment-json'); // read jsonc files
 const targetFileList = require('./lib/init').containerInit.sshFileList;
+
+const fsp = fs.promises;
 
 const fsReadFile = promisify(fs.readFile);
 
@@ -76,7 +76,7 @@ async function taTaTaTaTouchMe(paths) {
     await Promise.all(paths.mkdirpList.map(async (dir) => {
         console.log(`${scriptName} mkdirp'ing: [${dir}]`);
         try {
-            await mkdirp(dir, { mode: '700' });
+            await fsp.mkdir(dir, { recursive: true, mode: 0o700 });
         } catch (e) {
             console.error(`${scriptName} ${e} ❌`);
         }
@@ -86,7 +86,9 @@ async function taTaTaTaTouchMe(paths) {
     await Promise.all(paths.touchList.map(async (touchMe) => {
         console.log(`${scriptName} touching: [${touchMe}]`);
         try {
-            await touch(touchMe, { atime: true });
+            await fsp.mkdir(path.dirname(touchMe), { recursive: true, mode: 0o700 });
+            const handle = await fsp.open(touchMe, 'a');
+            await handle.close();
         } catch (e) {
             console.error(`${scriptName} ${e} ❌`);
         }
