@@ -57,6 +57,9 @@
         // "source=deno-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
         // persist command history
         "source=deno-playground-command_history,target=/command_history,type=volume"
+        ,
+        // persist gh config and tokens between container rebuilds
+        "source=deno-playground-gh-config,target=/root/.config/gh,type=volume"
     ],
     "containerEnv": {
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions

@@ -45,6 +45,15 @@ RUN apt-get update \
   && npm install -g release-it \
   && rm -rf /var/lib/apt/lists/*
 
+# Install GitHub CLI (gh)
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > /etc/apt/sources.list.d/github-cli.list \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends gh \
+  && rm -rf /var/lib/apt/lists/* \
+  || true
+
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
 # Comment this out for non-corporate envs where you might have MitM attacks from IP loss prevention software like Netskope
 # @See: https://en.wikipedia.org/wiki/Netskope
@@ -78,3 +87,4 @@ RUN npm test
 FROM base-env AS workspace-env
 RUN echo NODE_ENV:$NODE_ENV
 RUN deno --version && echo 'node version:' $(node --version) && echo 'npm version:' $(npm --version)
+RUN mkdir -p /root/.config/gh && chmod 0700 /root/.config/gh || true
