@@ -27,12 +27,49 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
         // only attempt to configure ssh if we were given a tempSSHFolder and it is not the same as the final ssh folder
         if (tempSSHFolder && tempSSHFolder !== targetSSHFolder) {
             console.log(`copying ssh files from ${tempSSHFolder} to ${targetSSHFolder}`);
+            // Normalize tempSSHFolder to forward slashes and insert separator when a Windows drive
+            // is concatenated right after the target folder (e.g. '/root/.sshC:/Users/...')
+            const original = tempSSHFolder;
+            const forwardSlashes = original.replace(/\\+/g, '/');
+            const collapsedSlashes = forwardSlashes.replace(/\/+/g, '/');
+            // candidate with separator inserted before a Windows drive (C:/...)
+            let insertedSeparator = collapsedSlashes;
+            try {
+                const escapedTarget = targetSSHFolder.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+                insertedSeparator = collapsedSlashes.replace(new RegExp(`${escapedTarget}(?=[A-Za-z]:)`), `${targetSSHFolder}/`);
+            } catch (err) {
+                insertedSeparator = collapsedSlashes;
+            }
+            const rawCandidates = [
+                original,
+                forwardSlashes,
+                collapsedSlashes,
+                insertedSeparator,
+            ];
+            const candidates = rawCandidates.map((c) => path.normalize(c));
+            let normalizedTemp = null;
+            const foundCandidates = await Promise.all(candidates.map(async (candidate) => {
+                try {
+                    const s = await fsStat(candidate);
+                    if (s && s.isDirectory()) return candidate;
+                } catch (e) {
+                    // ignore
+                }
+                return null;
+            }));
+            normalizedTemp = foundCandidates.find((c) => !!c) || null;
+            // final fallback: use original string normalized regardless of existence
+            if (!normalizedTemp) {
+                normalizedTemp = path.normalize(collapsedSlashes);
+            }
+            normalizedTemp = path.normalize(normalizedTemp);
+            console.log(`normalized ssh temp folder: ${normalizedTemp}`);
             // make the target folder if it doesn't exist
             // create the target folder if it doesn't exist and set the permissions to 0700
             await mkdir(targetSSHFolder, { recursive: true, mode: 0o700 });
 
             // copy files over an set appropriate permissions
-            const allFiles = await readdir(tempSSHFolder);
+            const allFiles = await readdir(normalizedTemp);
             console.log(allFiles);
             const filteredFiles = allFiles.filter((file) => targetFiles.includes(file));
             console.log(filteredFiles);
@@ -40,7 +77,7 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
             // copy files over to the target dir and set the appropriate mode
             const tasks = filteredFiles.map(async (file) => {
                 try {
-                    const sourceFullPath = path.join(tempSSHFolder, file);
+                    const sourceFullPath = path.join(normalizedTemp, file);
                     const targetFullPath = path.join(targetSSHFolder, file);
                     const sourceStat = await fsStat(sourceFullPath);
                     if (sourceStat.isDirectory()) {
