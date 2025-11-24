@@ -35,7 +35,7 @@ If you're brand new to vscode, you can check out their [series of intro vids to 
 
 ## Play With Deno Outside of Workspace
 
-- If you just want to build the workspace and play with deno from your host's command line:
+If you just want to build the workspace and play with deno from your host's command line:
 
 ```bash
 ## build
@@ -84,8 +84,11 @@ All commands are assumed to be ran under `powershell` for Windows hosts and `bas
 - You must have local volume mounts working to get the most out of this guide. You can test you local drive mounting with the following code:
 
 ```powershell
-# This should print the contents of your host OS home folder. 
-docker run --rm -v ~:/data alpine ls /data
+# This should print the contents of your host OS home folder.
+# PowerShell (Windows hosts)
+docker run --rm -v ${env:USERPROFILE}:/data debian:stable-slim ls /data
+# Bash (Linux/macOS/WSL)
+docker run --rm -v $HOME:/data debian:stable-slim ls /data
 ```
 
 <!-- !Add this section back if the init script or $HOME code is added back to the devcontainer.json
