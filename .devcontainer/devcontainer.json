@@ -26,7 +26,8 @@
                 "mutantdino.resourcemonitor",
                 "bierner.emojisense",
                 "github.vscode-pull-request-github",
-                "github.remotehub"
+                "github.remotehub",
+                "ms-vscode-remote.vscode-remote-extensionpack"
             ],
             "settings": {
                 "remote.extensionKind": {
@@ -55,10 +56,8 @@
         // user setting and workspace persistence
         // "source=deno-playground-vscode-data,target=/root/.vscode-server/data,type=volume",
         // "source=deno-playground-vscode-data-insiders,target=/root/.vscode-server-insiders/data,type=volume",
-        // quokka config persistence
-        "source=deno-playground-quokka,target=/root/.quokka/,type=volume",
         // persist command history
-        "source=deno-playground-ash_history,target=/command_history,type=volume"
+        "source=deno-playground-command_history,target=/command_history,type=volume"
     ],
     "containerEnv": {
         // set a special folder path for Windows hosts. If we detect a Windows path downstream we'll fix the permissions

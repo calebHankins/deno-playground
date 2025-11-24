@@ -5,10 +5,25 @@ FROM $BASE_IMAGE AS base-env
 RUN deno --version
 
 # Persist command history through container rebuilds
-RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/command_history/.bash_history" \
-    && echo $SNIPPET >> "/root/.bashrc" \
-    && mkdir -p /command_history \
-    && touch /command_history/.bash_history
+# Make this idempotent, system-wide, and compatible with Debian/bourne shells.
+RUN mkdir -p /command_history \
+  && touch /command_history/.bash_history \
+  && chown -R 1000:1000 /command_history \
+  && chmod 0755 /command_history \
+  && chmod 0644 /command_history/.bash_history \
+  && cat >/etc/profile.d/command_history.sh <<'BASH'
+#!/usr/bin/env bash
+# Persist shell history across container sessions
+# Store shared history in a Docker volume mounted at /command_history
+shopt -s histappend 2>/dev/null || true
+export HISTFILE=/command_history/.bash_history
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+if [ -n "$PROMPT_COMMAND" ]; then PROMPT_COMMAND="$PROMPT_COMMAND; history -a"; else PROMPT_COMMAND='history -a'; fi
+export PROMPT_COMMAND
+BASH
+RUN chmod 0644 /etc/profile.d/command_history.sh \
+  && grep -qxF 'if [ -f /etc/profile.d/command_history.sh ]; then . /etc/profile.d/command_history.sh; fi' /etc/bash.bashrc || echo 'if [ -f /etc/profile.d/command_history.sh ]; then . /etc/profile.d/command_history.sh; fi' >> /etc/bash.bashrc
 
 # Install some dev and QoL tooling
 RUN apt-get update \
