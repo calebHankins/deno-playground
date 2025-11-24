@@ -61,17 +61,21 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
 RUN set -eux; \
   echo "Checking for npm WARN about deprecated builtin 'globalignorefile'..."; \
   npm_output=$(npm config list -l 2>&1 || true); \
-  if echo "$npm_output" | grep -q 'Unknown builtin config "globalignorefile"\|Unknown builtin config \'globalignorefile\''; then \
+  # Simplify detection: grep for the string 'globalignorefile' in npm output
+  if echo "$npm_output" | grep -q 'globalignorefile'; then \
     echo "Detected deprecated 'globalignorefile' warning; cleaning builtin npmrc"; \
     npmrc_path=$(node -e "console.log(require.resolve('npm/package.json').replace('/package.json','/npmrc'))"); \
-    if [ -f "$npmrc_path" ]; then \
-      echo "Removing '^globalignorefile=' from: $npmrc_path"; \
-      sed -i '/^globalignorefile=/d' "$npmrc_path" || true; \
-    else \
-      echo "npm builtin npmrc not found at: $npmrc_path"; \
-    fi; \
+    # Try multiple common builtin npmrc locations that Debian and other distros use
+    for rc in "$npmrc_path" /usr/local/lib/node_modules/npm/npmrc /usr/share/nodejs/npm/npmrc /usr/lib/node_modules/npm/npmrc; do \
+      if [ -f "$rc" ]; then \
+        echo "Removing '^globalignorefile=' from: $rc"; \
+        sed -i '/^globalignorefile=/d' "$rc" || true; \
+      else \
+        echo "No built-in npmrc at: $rc"; \
+      fi; \
+    done; \
   else \
-    echo "No 'globalignorefile' warning detected; nothing to do."; \
+    echo "No globalignorefile warning detected; nothing to do."; \
   fi
 
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
