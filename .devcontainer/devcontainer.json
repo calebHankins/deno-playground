@@ -3,7 +3,7 @@
     "name": "deno-playground",
     "dockerFile": "Dockerfile",
     "appPort": [],
-    "postCreateCommand": "npm config delete globalignorefile --global || true && npm install && npm run configureSSH",
+    "postCreateCommand": "npm install && npm run configureSSH",
     "build": {
         "args": {
             // "BASE_IMAGE":"denoland/deno", // use alternate base image (unpinned/latest) to keep workspace evergreen

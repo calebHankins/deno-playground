@@ -54,6 +54,26 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
   && rm -rf /var/lib/apt/lists/* \
   || true
 
+# WARN mitigation: detect npm startup WARNING about deprecated builtin config
+# and remove that key from the builtin npmrc only when necessary.
+# This is done in its own RUN step so the image build logs clearly show
+# whether the mitigation ran or not and makes it easier to debug failures.
+RUN set -eux; \
+  echo "Checking for npm WARN about deprecated builtin 'globalignorefile'..."; \
+  npm_output=$(npm config list -l 2>&1 || true); \
+  if echo "$npm_output" | grep -q 'Unknown builtin config "globalignorefile"\|Unknown builtin config \'globalignorefile\''; then \
+    echo "Detected deprecated 'globalignorefile' warning; cleaning builtin npmrc"; \
+    npmrc_path=$(node -e "console.log(require.resolve('npm/package.json').replace('/package.json','/npmrc'))"); \
+    if [ -f "$npmrc_path" ]; then \
+      echo "Removing '^globalignorefile=' from: $npmrc_path"; \
+      sed -i '/^globalignorefile=/d' "$npmrc_path" || true; \
+    else \
+      echo "npm builtin npmrc not found at: $npmrc_path"; \
+    fi; \
+  else \
+    echo "No 'globalignorefile' warning detected; nothing to do."; \
+  fi
+
 # Trust self-signed certs in the chain for schemastore.azurewebsites.net:443 for intellisense
 # Comment this out for non-corporate envs where you might have MitM attacks from IP loss prevention software like Netskope
 # @See: https://en.wikipedia.org/wiki/Netskope
