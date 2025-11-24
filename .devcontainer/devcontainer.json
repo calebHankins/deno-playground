@@ -9,7 +9,7 @@
             // "BASE_IMAGE":"denoland/deno", // use alternate base image (unpinned/latest) to keep workspace evergreen
         }
     },
-    // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts-bullseye npm run --production devContainerInit",
+    // "initializeCommand": "docker run --rm -it -e HOME_OVERRIDE=/host_home --mount type=bind,source=${localWorkspaceFolder},target=/workspace -w /workspace --mount source=devContainerInit-node_mods,target=/workspace/node_modules,type=volume  -v ~:/host_home node:lts npm run --production devContainerInit",
     "customizations": {
         "vscode": {
             "extensions": [

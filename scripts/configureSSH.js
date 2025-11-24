@@ -1,13 +1,15 @@
 const fs = require('fs');
-const mkdirp = require('mkdirp');
-const { promisify } = require('util');
+const path = require('path');
 const targetFileList = require('./lib/init').containerInit.sshFileList;
 const targetSSHFolderEnv = require('./lib/init').containerInit.sshFolderRemote;
 
-const readdir = promisify(fs.readdir);
-const fsCopy = promisify(fs.copyFile);
-const fsStat = promisify(fs.stat);
-const fsChmod = promisify(fs.chmod);
+const {
+    readdir,
+    copyFile: fsCopy,
+    stat: fsStat,
+    chmod: fsChmod,
+    mkdir,
+} = fs.promises;
 
 const tempSSHFolderEnv = process.env.SSH_TEMP_FOLDER_NAME;
 console.log(`ssh folder detected as: ${targetSSHFolderEnv}`);
@@ -26,10 +28,8 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
         if (tempSSHFolder && tempSSHFolder !== targetSSHFolder) {
             console.log(`copying ssh files from ${tempSSHFolder} to ${targetSSHFolder}`);
             // make the target folder if it doesn't exist
-            const mkdirpOptions = {
-                mode: '700',
-            };
-            await mkdirp(targetSSHFolder, mkdirpOptions);
+            // create the target folder if it doesn't exist and set the permissions to 0700
+            await mkdir(targetSSHFolder, { recursive: true, mode: 0o700 });
 
             // copy files over an set appropriate permissions
             const allFiles = await readdir(tempSSHFolder);
@@ -38,13 +38,18 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
             console.log(filteredFiles);
 
             // copy files over to the target dir and set the appropriate mode
-            filteredFiles.forEach(async (file) => {
+            const tasks = filteredFiles.map(async (file) => {
                 try {
-                    const sourceFullPath = `${tempSSHFolder}/${file}`;
-                    const targetFullPath = `${targetSSHFolder}/${file}`;
+                    const sourceFullPath = path.join(tempSSHFolder, file);
+                    const targetFullPath = path.join(targetSSHFolder, file);
+                    const sourceStat = await fsStat(sourceFullPath);
+                    if (sourceStat.isDirectory()) {
+                        console.log(`Skipping directory ${sourceFullPath}`);
+                        return;
+                    }
                     console.log(`Copying ${sourceFullPath} to ${targetFullPath}`);
                     await fsCopy(sourceFullPath, targetFullPath);
-                    await fsChmod(targetFullPath, '0600');
+                    await fsChmod(targetFullPath, 0o600);
                     const statAfterUpdate = await fsStat(targetFullPath);
                     // eslint-disable-next-line no-bitwise
                     const unixFilePermissionsAfterUpdate = `0${(statAfterUpdate.mode & 0o777).toString(8)}`;
@@ -53,6 +58,7 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
                     console.error(err);
                 }
             });
+            await Promise.all(tasks);
         } else {
             console.log('ssh temp and target folder are the same or temp folder not set, skipping copy');
         }
@@ -60,6 +66,5 @@ async function copySSHFiles(tempSSHFolder, targetSSHFolder, targetFiles) {
         console.log(err);
     }
 }
-
 
 copySSHFiles(tempSSHFolderEnv, targetSSHFolderEnv, targetFileList);
