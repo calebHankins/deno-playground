@@ -23,18 +23,19 @@
     "author": "Caleb 'chanki' Hankins",
     "license": "Apache-2.0",
     "dependencies": {
-        "comment-json": "^3.0.2",
-        "mkdirp": "^1.0.3",
-        "os": "^0.1.1",
-        "path": "^0.12.7",
+        "comment-json": "^4.2.0",
+        "mkdirp": "^1.0.4",
         "touch": "^3.1.0",
         "yn": "^4.0.0"
     },
     "devDependencies": {
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-json": "^2.1.1",
-        "release-it": "^16.1.5"
+        "eslint": "^8.57.1",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.28.1",
+        "eslint-plugin-json": "^4.0.1",
+        "release-it": "^19.0.6"
+    },
+    "overrides": {
+        "brace-expansion": "^1.1.12"
     }
 }
