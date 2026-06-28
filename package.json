@@ -27,10 +27,9 @@
         "yn": "^5.1.0"
     },
     "devDependencies": {
-        "eslint": "^8.57.1",
-        "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-plugin-import": "^2.32.0",
+        "eslint": "^10.6.0",
+        "eslint-plugin-jsdoc": "^62.9.0",
         "eslint-plugin-json": "^4.0.1",
-        "release-it": "^20.0.1"
+        "release-it": "^20.2.1"
     }
 }
