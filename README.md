@@ -9,7 +9,6 @@
   - [Mission Statement](#mission-statement)
   - [Play With Deno Outside of Workspace](#play-with-deno-outside-of-workspace)
   - [Workspace Features](#workspace-features)
-    - [Live Javascript Scratchpad](#live-javascript-scratchpad)
     - [Release Management Tooling](#release-management-tooling)
   - [Using This Guide](#using-this-guide)
   - [Pre-Req Checklist](#pre-req-checklist)
@@ -47,19 +46,6 @@ deno run https://deno.land/std/examples/welcome.ts
 ```
 
 ## Workspace Features
-
-### Live Javascript Scratchpad
-
-[Quokka](https://quokkajs.com/) is a slick prototyping tool for javascript development. The Quokka configuration settings are persisted into a docker volume to persist changes through rebuilds.
-
-These included extensions add integrated support for Quokka in vscode.
-
-- [Quokka.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
-- [Quokka Statusbar Buttons](https://marketplace.visualstudio.com/items?itemName=sketchbuch.vsc-quokka-statusbar)
-
-You can give it a try by opening the [Days 'Till Xmas](./emoji/days-till-xmas/index.js) sample app and hitting one of the `Q` buttons in the status bar.
-
-![quokka](img/quokka.png)
 
 ### Release Management Tooling
 
@@ -178,7 +164,6 @@ To try our your new env, you can start by running the supplied ["Hello, World!" 
 docker volume rm deno-playground-node_modules
 docker volume rm deno-playground-extensions
 docker volume rm deno-playground-extensions-insiders
-docker volume rm deno-playground-quokka
 docker volume rm deno-playground-ash_history
 ```
 
