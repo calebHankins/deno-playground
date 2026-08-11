@@ -41,7 +41,6 @@ RUN apt-get update \
     nodejs \
     npm \
     bsdmainutils \
-  && npm install -g npm \
   && npm install -g release-it \
   && rm -rf /var/lib/apt/lists/*
 
@@ -87,8 +86,8 @@ RUN set -eux; \
 RUN openssl s_client -showcerts  -connect schemastore.azurewebsites.net:443 2>&1 < /dev/null |\
  sed -n '/-----BEGIN/,/-----END/p' >\
  /usr/local/share/ca-certificates/schemastore.azurewebsites.net.crt \
- && chmod 644 /usr/local/share/ca-certificates/*.crt \
- && update-ca-certificates --verbose
+  && chmod 644 /usr/local/share/ca-certificates/*.crt \
+  && update-ca-certificates --verbose
 
 # Tell node & python to trust the new cert bundles in addition to the built-ins
 ENV NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/schemastore.azurewebsites.net.crt
