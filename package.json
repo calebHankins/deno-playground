@@ -30,6 +30,6 @@
         "eslint": "^10.6.0",
         "eslint-plugin-jsdoc": "^62.9.0",
         "eslint-plugin-json": "^4.0.1",
-        "release-it": "^21.1.1"
+        "release-it": "^21.1.2"
     }
 }
